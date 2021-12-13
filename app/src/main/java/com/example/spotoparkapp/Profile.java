@@ -10,18 +10,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.spotoparkapp.downloaders.*;
 
-import com.example.spotoparkapp.downloaders.JSONObjDownloader;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
 public class Profile extends AppCompatActivity {
 
-    TextView name, password, bdate, email;
-    JSONObject utilizador ;
+    /*JSONObject utilizador ;
     String utilizador_name;
     String utilizador_password;
     String utilizador_bdate;
@@ -78,4 +76,5 @@ public class Profile extends AppCompatActivity {
         startActivity(intent);
     }
 
+*/
 }

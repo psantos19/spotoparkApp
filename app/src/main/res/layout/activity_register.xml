@@ -53,6 +53,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="80dp"
         android:backgroundTint="#FFFFFF"
+        android:onClick="onClickRegComplete"
         android:text="Registar"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"

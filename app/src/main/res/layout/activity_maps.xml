@@ -15,32 +15,50 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/barra" />
 
     <ImageButton
         android:id="@+id/menuButton"
-        android:layout_width="52dp"
-        android:layout_height="50dp"
+        android:layout_width="47dp"
+        android:layout_height="49dp"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="-50dp"
         android:layout_marginEnd="301dp"
-        android:layout_marginBottom="672dp"
+        android:layout_marginBottom="664dp"
         android:background="@drawable/ic_baseline_menu_24"
         android:onClick="onClickGoMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sv_location"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <SearchView
         android:id="@+id/sv_location"
         android:layout_width="315dp"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-50dp"
         android:elevation="5dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mapView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="80dp"
         android:background="@drawable/bg_round"/>
 
 

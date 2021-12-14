@@ -64,13 +64,18 @@ public class Register extends AppCompatActivity {
             email.setError("Email required!");
         }
         if (Password.length() < 6) {
+            password.setError("Password must be over 6 digits");
+        }
+        if (TextUtils.isEmpty(Password)) {
             password.setError("Password is required");
         }
         if (TextUtils.isEmpty(Bdate)) {
             bdate.setError("Insert date of birth");
         }
-        // JSON array downloader
-        JSONArrayDownloader task = new JSONArrayDownloader();
+
+        
+        // isto é para pegar dados da BD
+        /*JSONArrayDownloader task = new JSONArrayDownloader();
 
         //download spots
         try {
@@ -79,34 +84,8 @@ public class Register extends AppCompatActivity {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
-        /*JSONObject obj;
-        utlizador_name = new ArrayList<>();
-        utilizador_password = new ArrayList<>();
-        utilizador_bdate = new ArrayList<>();
-        utilizador_email = new ArrayList<>();
-        utilizador_coordinates = new ArrayList<>();
-        utilizador_id = new ArrayList<>();
-        if(RegisterCredentials != null) {
-            for(int i = 0; i < RegisterCredentials.length(); i++) {
-                try {
-                    obj = RegisterCredentials.getJSONObject(i);
-                    String spotname1 = obj.getString("name");
-                    String spotdescription = obj.getString("description");
-                    spotId.add(obj.getInt("id"));
-                    spotName.add(obj.getString("name"));
-                    spotLatitude.add(obj.getDouble("latitude"));
-                    spotLongitude.add(obj.getDouble("longitude"));
-                    spotDescription.add(obj.getString("description"));
-                    LatLng Spots = new LatLng(spotLatitude.get(i), spotLongitude.get(i));
-                }
-                catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }*/
     }
 }

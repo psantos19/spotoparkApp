@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,19 +45,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View v) throws JSONException {
-        String Email = email.getText().toString().trim();
-        String Password = password.getText().toString().trim();
+        String Email = email.getText().toString();
+        String Password = password.getText().toString();
 
         if (TextUtils.isEmpty(Email)) {
             email.setError("Email required!");
         }
         if (Password.length() < 6 || TextUtils.isEmpty(Password)) {
-            password.setError("Password is required");
+            password.setError("Password is to short");
         }
-        // JSON array downloader
+        // JSON array downloader (liga a task)
         JSONArrayDownloader task = new JSONArrayDownloader();
 
-        //download spots
+        //download dos utilizadores e mete-os dentro do array LoginCredentials
         try {
             LoginCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
         } catch (ExecutionException e) {
@@ -64,34 +65,30 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
-        JSONObject obj;
-       /* utlizador_name = new ArrayList<>();
-        utilizador_password = new ArrayList<>();
-        utilizador_bdate = new ArrayList<>();
-        utilizador_email = new ArrayList<>();
-        utilizador_coordinates = new ArrayList<>();
-        utilizador_id = new ArrayList<>();*/
-        if (LoginCredentials != null) {
+        //vamos verificar se dentro do array existem as strings que o utilizador inseriu
+        if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
             for (int i = 0; i < LoginCredentials.length(); i++) {
-                    /*if (LoginCredentials.get(i).toString().equals(Email) & LoginCredentials.get(i).toString().equals(Password)){
-                        Intent intent = new Intent(getApplicationContext(), Maps.class);
-                        startActivity(intent);*/
-                Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+                if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
+                    Intent intent = new Intent(getApplicationContext(), Maps.class);
+                    startActivity(intent);
+                    Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+                }
                 }
             }
+
+        // so queremos dar toast disto quando o que esta no if nao acontece ou seja quando nao muda para a class Maps
+        //Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
+    }
+
+
+        public void onClickRegister(View v){
+            Intent intent = new Intent(getApplicationContext(), Register.class);
+            startActivity(intent);
+
         }
 
-
-    public void onClickRegister(View v) {
-        Intent intent = new Intent(getApplicationContext(), Register.class);
-        startActivity(intent);
-
+        public void onClickForgotPassword (View v){
+            Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
+            startActivity(intent);
+        }
     }
-
-    public void onClickForgotPassword(View v) {
-        Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
-        startActivity(intent);
-    }
-}

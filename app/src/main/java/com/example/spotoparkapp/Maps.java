@@ -55,7 +55,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onLocationChanged(Location location) {
                 LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(userLocation).title("Your location"));
             }
 
 
@@ -110,13 +109,12 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     }
 
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
+    @Override    public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
         LatLng santos = new LatLng(38.7071236,-9.1525369);
         LatLng userLocation = new LatLng(lati, longi);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 14));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 16));
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
@@ -136,13 +134,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         googleMap.getUiSettings().setCompassEnabled(true);
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
 
-        /*LatLng latLng = new LatLng(38.70733381161048, -9.152454157670787);
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));*/
-
-        JSONArrayDownloader task = new JSONArrayDownloader();
-        ArrayList<Double> resLat = new ArrayList<>();
-        ArrayList<Double> resLongt = new ArrayList<>();
     }
 
     @Override

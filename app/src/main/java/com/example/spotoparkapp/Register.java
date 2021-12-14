@@ -72,11 +72,7 @@ public class Register extends AppCompatActivity {
         if (TextUtils.isEmpty(Bdate)) {
             bdate.setError("Insert date of birth");
         }
-<<<<<<< HEAD
 
-        
-=======
->>>>>>> 1aba1b20bf2d0db037ff4c87041c2edcc9bb37d8
         // isto é para pegar dados da BD
         /*JSONArrayDownloader task = new JSONArrayDownloader();
 

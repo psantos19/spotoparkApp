@@ -14,12 +14,13 @@ import com.example.spotoparkapp.downloaders.*;
 
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
 public class Profile extends AppCompatActivity {
 
-    /*JSONObject utilizador ;
+    JSONObject utilizador ;
     String utilizador_name;
     String utilizador_password;
     String utilizador_bdate;
@@ -76,5 +77,4 @@ public class Profile extends AppCompatActivity {
         startActivity(intent);
     }
 
-*/
 }

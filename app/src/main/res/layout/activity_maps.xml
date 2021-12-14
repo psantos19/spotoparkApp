@@ -40,7 +40,8 @@
         android:iconifiedByDefault="false"
         android:queryHint="Search..."
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="80dp" />
+        tools:layout_editor_absoluteX="80dp"
+        android:background="@drawable/bg_round"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

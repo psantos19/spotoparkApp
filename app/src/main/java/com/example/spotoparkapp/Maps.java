@@ -110,7 +110,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     }
 
 
-    @Override    public void onMapReady(@NonNull GoogleMap googleMap) {
+    @Override public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
         LatLng santos = new LatLng(38.7071236,-9.1525369);

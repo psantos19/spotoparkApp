@@ -119,10 +119,11 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
-        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Parque 1").snippet("SpoToPark")
+        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("SpoToPark").snippet("Parque 1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
         LatLng parque2 = new LatLng(38.708030, -9.147979);
-        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Parque 2").snippet("SpoToPark")
+        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("SpoToPark").snippet("Parque 2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)

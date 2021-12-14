@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/menuButton"
@@ -22,12 +23,24 @@
         android:layout_height="50dp"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="301dp"
-        android:layout_marginBottom="648dp"
+        android:layout_marginBottom="672dp"
         android:background="@drawable/ic_baseline_menu_24"
         android:onClick="onClickGoMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <SearchView
+        android:id="@+id/sv_location"
+        android:layout_width="315dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search..."
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="80dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,6 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         JSONObjDownloader task = new JSONObjDownloader();
-        JSONObjDownloader task2 = new JSONObjDownloader();
 
         try {
             utilizador = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador/1").get();

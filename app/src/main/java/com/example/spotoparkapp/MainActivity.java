@@ -66,19 +66,19 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //vamos verificar se dentro do array existem as strings que o utilizador inseriu
-        if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
-            for (int i = 0; i < LoginCredentials.length(); i++) {
-                if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
-                    Intent intent = new Intent(getApplicationContext(), Maps.class);
-                    startActivity(intent);
-                    Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
-                }
-                }
-            }
+        //if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
+        // for (int i = 0; i < LoginCredentials.length(); i++) {
+        //   if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
+        Intent intent = new Intent(getApplicationContext(), Maps.class);
+        startActivity(intent);
+        Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+        // }
+    }
+//}
 
         // so queremos dar toast disto quando o que esta no if nao acontece ou seja quando nao muda para a class Maps
         //Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
-    }
+    //}
 
 
         public void onClickRegister(View v){

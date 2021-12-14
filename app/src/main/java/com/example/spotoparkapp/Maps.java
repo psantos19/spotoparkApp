@@ -123,7 +123,10 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         LatLng parque2 = new LatLng(38.708030, -9.147979);
         Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Parque 2").snippet("SpoToPark"));
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
             return;
         }
 

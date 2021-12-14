@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         //   if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
         Intent intent = new Intent(getApplicationContext(), Maps.class);
         startActivity(intent);
-        Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+        //Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
         // }
     }
 //}

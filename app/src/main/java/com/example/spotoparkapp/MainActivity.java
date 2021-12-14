@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         //vamos verificar se dentro do array existem as strings que o utilizador inseriu
         //if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
         // for (int i = 0; i < LoginCredentials.length(); i++) {

@@ -1,7 +1,10 @@
 package com.example.spotoparkapp;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -10,8 +13,11 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +25,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -35,6 +43,8 @@ import java.util.List;
 
 public class Maps extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final int ERROR_DIALOG_REQUEST = 100;
+    private static final int PERMISSIONS_REQUEST_ENABLE_GPS = 10;
     GoogleMap mMap;
     MapView mapView;
     LocationManager locationManager;
@@ -48,43 +58,15 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        searchView = findViewById(R.id.sv_location);
-        mapView = findViewById(R.id.mapView);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                String location = searchView.getQuery().toString();
-                List<Address> addressList = null;
-
-                if (location != null || !location.equals("")){
-                    Geocoder geocoder = new Geocoder( Maps.this);
-                    try {
-                        addressList = geocoder.getFromLocationName(location,1);
-                        Address address = addressList.get(0);
-                        LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
-                        mMap    .addMarker (new MarkerOptions ().position (latLng).title (location));
-                        mMap.animateCamera (CameraUpdateFactory.newLatLngZoom (latLng, 10));
-
-                    }catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-        //binding = ActivityMapsFinalBinding.inflate(getLayoutInflater());
-        // setContentView(binding.getRoot());
 
         mapView = findViewById(R.id.mapView);
         mapView.getMapAsync(this);
         mapView.onCreate(savedInstanceState);
+
+
+
+
+
 
         // 1 - Criar o location Manager para ir buscar a localização do nosso dispositivo
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -128,6 +110,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
             );
         }
     }
+
 
     // 4 - Verificar se temos permissões ao executar a nossa Activity
     @Override
@@ -179,6 +162,27 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
 
     }
+
+     void onMapReady(View view) {
+         EditText locationsearch = (EditText) findViewById(R.id.SearchBar);
+         String location = locationsearch.getText().toString();
+         List<Address> addressList = null;
+         if (location != null || !location.equals("")) ;
+         {
+             Geocoder geocoder = new Geocoder(this);
+             try {
+                 addressList = geocoder.getFromLocationName(location, 1);
+
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+             Address address = addressList.get(0);
+             LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+             mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+         }
+     }
+
 
     @Override
     protected void onStart() {

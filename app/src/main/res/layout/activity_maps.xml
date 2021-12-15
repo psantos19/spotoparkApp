@@ -45,21 +45,20 @@
         app:layout_constraintTop_toBottomOf="@+id/sv_location"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <SearchView
-        android:id="@+id/sv_location"
-        android:layout_width="315dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="-50dp"
-        android:elevation="5dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search..."
+    <EditText
+        android:id="@+id/SearchBar"
+        android:layout_width="326dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="-713dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_round"
+        android:ems="10"
+        android:hint="   Insira o destino..."
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mapView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bg_round"/>
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

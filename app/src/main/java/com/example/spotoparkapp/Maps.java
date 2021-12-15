@@ -23,6 +23,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -46,7 +47,10 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         searchView = findViewById(R.id.sv_location);
+        mapView = findViewById(R.id.mapView);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -57,13 +61,14 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
                     Geocoder geocoder = new Geocoder( Maps.this);
                     try {
                         addressList = geocoder.getFromLocationName(location,1);
+                        Address address = addressList.get(0);
+                        LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+                        mMap    .addMarker (new MarkerOptions ().position (latLng).title (location));
+                        mMap.animateCamera (CameraUpdateFactory.newLatLngZoom (latLng, 10));
+
                     }catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
-                    mMap.addMarker (new MarkerOptions ().position (latLng).title (location));
-                    mMap.animateCamera (CameraUpdateFactory.newLatLngZoom (latLng, 10));
                 }
                 return false;
             }

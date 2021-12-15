@@ -4,11 +4,14 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +27,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Maps extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -33,15 +38,43 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     LocationManager locationManager;
     LocationListener locationListener;
     double lati, longi;
+    SearchView searchView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        searchView = findViewById(R.id.sv_location);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                String location = searchView.getQuery().toString();
+                List<Address> addressList = null;
+
+                if (location != null || !location.equals("")){
+                    Geocoder geocoder = new Geocoder( Maps.this);
+                    try {
+                        addressList = geocoder.getFromLocationName(location,1);
+                    }catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Address address = addressList.get(0);
+                    LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+                    mMap.addMarker (new MarkerOptions ().position (latLng).title (location));
+                    mMap.animateCamera (CameraUpdateFactory.newLatLngZoom (latLng, 10));
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         //binding = ActivityMapsFinalBinding.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
+        // setContentView(binding.getRoot());
 
         mapView = findViewById(R.id.mapView);
         mapView.getMapAsync(this);

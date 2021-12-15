@@ -23,6 +23,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -142,21 +143,26 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     }
 
 
-    @Override    public void onMapReady(@NonNull GoogleMap googleMap) {
+    @Override public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
         LatLng santos = new LatLng(38.7071236,-9.1525369);
         LatLng userLocation = new LatLng(lati, longi);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 16));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 15));
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
-        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Parque 1").snippet("SpoToPark"));
+        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("SpoToPark").snippet("Parque 1")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         LatLng parque2 = new LatLng(38.708030, -9.147979);
-        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Parque 2").snippet("SpoToPark"));
+        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("SpoToPark").snippet("Parque 2")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
             return;
         }
 

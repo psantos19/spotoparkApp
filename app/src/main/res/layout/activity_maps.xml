@@ -37,7 +37,7 @@
         android:layout_marginEnd="301dp"
         android:layout_marginBottom="664dp"
         android:background="@drawable/ic_baseline_menu_24"
-        android:onClick="onClickGoMenu"
+        android:onClick="onMapReady2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -59,6 +59,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="-310dp"
+        app:layout_constraintEnd_toStartOf="@+id/SearchBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

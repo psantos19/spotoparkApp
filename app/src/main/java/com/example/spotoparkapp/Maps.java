@@ -13,10 +13,12 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -163,23 +165,50 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
     }
 
-     public void onMapReady2(View view) {
-         EditText locationsearch = (EditText) findViewById(R.id.SearchBar);
-         String location = locationsearch.getText().toString();
-         List<Address> addressList = null;
-         if (location != null || !location.equals("")) ;
+     public void onClickSearch(View v)
+     {
+         switch (v.getId())
          {
-             Geocoder geocoder = new Geocoder(this);
-             try {
-                 addressList = geocoder.getFromLocationName(location, 1);
+             case R.id.imageButton3:
+                 EditText locationsearch = (EditText) findViewById(R.id.SearchBar);
+                 String location = locationsearch.getText().toString();
 
-             } catch (IOException e) {
-                 e.printStackTrace();
+                 List<Address> addressList = null;
+
+
+                 if (!TextUtils.isEmpty(location))
+             {
+                 Geocoder geocoder = new Geocoder(this);
+
+                 try {
+                     addressList = geocoder.getFromLocationName(location, 6);
+
+                     if (addressList != null) {
+
+                         for (int i = 0; i < addressList.size(); i++) {
+                             Address address = addressList.get(i);
+                             LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                             mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+                             mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
+                             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+
+                         }
+                     }else
+                         {
+                         Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show();
+                     }
+                 }
+                 catch(IOException e)
+                 {
+                     e.printStackTrace();
+                 }
              }
-             Address address = addressList.get(0);
-             LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-             mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-             mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                 else
+             {
+                 Toast.makeText(this, "You need to insert destination", Toast.LENGTH_SHORT).show();
+             }
+                 break;
          }
      }
 

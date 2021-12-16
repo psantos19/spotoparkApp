@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Parque1 extends AppCompatActivity {
+public class Reserva extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

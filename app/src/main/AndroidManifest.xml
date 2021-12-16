@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpotoparkApp">
         <activity
-            android:name=".Parque1"
+            android:name=".Reserva"
             android:exported="true" />
         <activity
             android:name=".Historico"

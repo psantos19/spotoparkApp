@@ -26,21 +26,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+<<<<<<< HEAD
+=======
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+>>>>>>> 43af494dabb434fc48636ef6a0d8e11a5611018b
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Maps extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
@@ -263,7 +264,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Intent intent = new Intent(getApplicationContext(), Parque1.class);
+        Intent intent = new Intent(getApplicationContext(), Reserva.class);
         startActivity(intent);
     }
 

@@ -35,7 +35,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Maps extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
+public class Maps extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener  {
 
     GoogleMap mMap;
     MapView mapView;
@@ -129,6 +129,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         LatLng santos = new LatLng(38.7071236,-9.1525369);
         LatLng userLocation = new LatLng(lati, longi);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 15));
+
         List<Marker> markers  = new ArrayList<>();
 
         //When map is loaded
@@ -140,6 +141,9 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         LatLng parque2 = new LatLng(38.708030, -9.147979);
         Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Fazer Reserva 2").snippet("SpoToPark Parque 2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+        markerOne.setTag(1);
+        markerTwo.setTag(2);
 
         markers.add(markerOne);
         markers.add(markerTwo);
@@ -202,7 +206,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
              }
                  else
              {
-                 Toast.makeText(this, "You need to insert destination", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, "You need to insert a destination", Toast.LENGTH_SHORT).show();
              }
                  break;
          }

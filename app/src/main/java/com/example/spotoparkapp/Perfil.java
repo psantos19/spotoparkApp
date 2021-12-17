@@ -39,6 +39,8 @@ public class Perfil extends AppCompatActivity {
             utilizador_password = utilizador.getString("password");
             utilizador_bdate = utilizador.getString("bdate");
             utilizador_email = utilizador.getString("email");
+            // Com o jsonArray tens de usar a func size();
+            Log.e("Get size",""+utilizador.length());
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

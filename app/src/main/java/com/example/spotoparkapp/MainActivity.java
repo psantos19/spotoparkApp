@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
+
     //puxar do design
     private Button loginButton;
     private Button registerButton;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
         // }
     }
-//}
+    //}
 
         // so queremos dar toast disto quando o que esta no if nao acontece ou seja quando nao muda para a class Maps
         //Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();

@@ -40,6 +40,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Maps extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
@@ -136,16 +137,20 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         LatLng santos = new LatLng(38.7071236,-9.1525369);
         LatLng userLocation = new LatLng(lati, longi);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(santos, 15));
+        List<Marker> markers  = new ArrayList<>();
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
         Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Fazer Reserva").snippet("SpoToPark Parque 1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-        this.mMap.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) this);
+
 
         LatLng parque2 = new LatLng(38.708030, -9.147979);
         Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Fazer Reserva").snippet("SpoToPark Parque 2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+        markers.add(markerOne);
+        markers.add(markerTwo);
         this.mMap.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -263,6 +268,10 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     @Override
     public void onInfoWindowClick(Marker marker) {
         Intent intent = new Intent(getApplicationContext(), Reserva.class);
+        startActivity(intent);
+    }
+    public void onInfoWindowClick2(Marker marker) {
+        Intent intent = new Intent(getApplicationContext(), Reserva2.class);
         startActivity(intent);
     }
 

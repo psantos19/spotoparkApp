@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         if (Password.length() < 6 || TextUtils.isEmpty(Password)) {
             password.setError("Password is to short");
         }
+
         // JSON array downloader (liga a task)
         JSONArrayDownloader task = new JSONArrayDownloader();
 
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public void onClickForgotPassword (View v){
+        public void onClickForgotPassword(View v){
             Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
             startActivity(intent);
         }

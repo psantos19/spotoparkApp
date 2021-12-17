@@ -2,7 +2,9 @@ package com.example.spotoparkapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.spotoparkapp.downloaders.JSONObjDownloader;
@@ -50,5 +52,10 @@ public class Reserva extends AppCompatActivity {
         address.setText("Address: " + park_address);
         coordinates.setText("Coordinates: " + park_coordinates); */
 
+    }
+
+    public void onClickGoMaps(View v) {
+        Intent intent = new Intent(getApplicationContext(), Maps.class);
+        startActivity(intent);
     }
 }

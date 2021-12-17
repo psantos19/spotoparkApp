@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Reserva2">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="direcoes"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reservar "
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="70dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

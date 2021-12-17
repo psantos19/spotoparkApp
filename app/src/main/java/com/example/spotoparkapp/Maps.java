@@ -1,10 +1,7 @@
 package com.example.spotoparkapp;
 
 import android.Manifest;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -14,11 +11,9 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SearchView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,9 +22,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
-import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -141,12 +133,12 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
-        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Fazer Reserva").snippet("SpoToPark Parque 1")
+        Marker markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Fazer Reserva 1").snippet("SpoToPark Parque 1")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
 
         LatLng parque2 = new LatLng(38.708030, -9.147979);
-        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Fazer Reserva").snippet("SpoToPark Parque 2")
+        Marker markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Fazer Reserva 2").snippet("SpoToPark Parque 2")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         markers.add(markerOne);
@@ -267,12 +259,13 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Intent intent = new Intent(getApplicationContext(), Reserva.class);
-        startActivity(intent);
-    }
-    public void onInfoWindowClick2(Marker marker) {
-        Intent intent = new Intent(getApplicationContext(), Reserva2.class);
-        startActivity(intent);
+        if (marker.getTitle().equals("Fazer Reserva 1")) {
+            Intent intent = new Intent(getApplicationContext(), Reserva.class);
+            startActivity(intent);
+        }else if (marker.getTitle().equals("Fazer Reserva 2")){
+            Intent intent = new Intent(getApplicationContext(), Reserva2.class);
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -23,6 +23,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class Register extends AppCompatActivity {
+
     EditText nome, password, email, bdate;
     Button BotaoRegisto;
     JSONArray RegisterCredentials;

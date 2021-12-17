@@ -39,7 +39,7 @@
             android:name=".EditarPerfil"
             android:exported="true" />
         <activity
-            android:name=".Profile"
+            android:name=".Perfil"
             android:exported="true" />
         <activity
             android:name=".Maps"

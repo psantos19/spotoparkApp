@@ -15,7 +15,7 @@ public class EditarPerfil extends AppCompatActivity {
     }
 
     public void onClickGoProfile(View v) {
-        Intent intent = new Intent(getApplicationContext(), Profile.class);
+        Intent intent = new Intent(getApplicationContext(), Perfil.class);
         startActivity(intent);
     }
 }

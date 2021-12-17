@@ -274,6 +274,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         Intent intent = new Intent(getApplicationContext(), Reserva.class);
         startActivity(intent);
     }
+
     public void onInfoWindowClick2(Marker marker) {
         Intent intent = new Intent(getApplicationContext(), Reserva2.class);
         startActivity(intent);

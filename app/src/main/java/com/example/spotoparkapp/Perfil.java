@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
-public class Profile extends AppCompatActivity {
+public class Perfil extends AppCompatActivity {
 
     JSONObject utilizador ;
     String utilizador_name;
@@ -29,7 +29,7 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_perfil);
 
         JSONObjDownloader task = new JSONObjDownloader();
 

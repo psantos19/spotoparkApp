@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +9,10 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".Reserva1">
+    tools:context=".Reserva2">
 
     <EditText
-        android:id="@+id/inputText"
+        android:id="@+id/nomeReserva"
         android:layout_width="338dp"
         android:layout_height="37dp"
         android:background="@android:drawable/editbox_background"
@@ -20,7 +21,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/btQR"
+        android:id="@+id/butaoQR"
         android:layout_width="131dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -36,7 +37,7 @@
         android:textColor="#000000" />
 
     <ImageView
-        android:id="@+id/imageQR"
+        android:id="@+id/QRfinal"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="30dp"
@@ -44,17 +45,17 @@
         android:scaleType="fitCenter" />
 
     <ImageButton
-        android:id="@+id/goParque2"
-        android:layout_width="wrap_content"
+        android:id="@+id/onClickGoParque2"
+        android:layout_width="37dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FAA0C843"
+        android:backgroundTint="#076A6A6A"
+        android:onClick="onCLickGoParque2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <TextView
         android:id="@+id/textView11"

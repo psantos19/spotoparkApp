@@ -20,24 +20,24 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class Reserva2 extends AppCompatActivity {
 
-    EditText text;
-    Button button;
-    ImageView QRcode;
+    EditText texto;
+    Button botao;
+    ImageView codigoQR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva2);
 
-        text = findViewById(R.id.inputText);
-        button = findViewById(R.id.btQR);
-        QRcode = findViewById(R.id.imageQR);
+        texto = findViewById(R.id.nomeReserva);
+        botao = findViewById(R.id.butaoQR);
+        codigoQR = findViewById(R.id.QRfinal);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Obter o valor através do edit text
-                String sText = text.getText().toString().trim();
+                String sText = texto.getText().toString().trim();
                 //Inicializar a multi format writer
                 MultiFormatWriter writer = new MultiFormatWriter();
                 try {
@@ -48,12 +48,12 @@ public class Reserva2 extends AppCompatActivity {
                     //Inicializar bitmap
                     Bitmap bitmap = encoder.createBitmap(matrix);
                     //Colocar o bitmap numa imageview
-                    QRcode.setImageBitmap(bitmap);
+                    codigoQR.setImageBitmap(bitmap);
                     //Inicializar o input manager
                     InputMethodManager manager = (InputMethodManager)  getSystemService(
                             Context.INPUT_METHOD_SERVICE
                     );
-                    manager.hideSoftInputFromWindow(text.getApplicationWindowToken(), 0);
+                    manager.hideSoftInputFromWindow(texto.getApplicationWindowToken(), 0);
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
@@ -61,8 +61,8 @@ public class Reserva2 extends AppCompatActivity {
         });
     }
 
-    /*public void onCLickGoParque2(View v) {
+    public void onCLickGoParque2(View v) {
         Intent intent = new Intent(getApplicationContext(), Parque2.class);
         startActivity(intent);
-    }*/
+    }
 }

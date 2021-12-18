@@ -51,11 +51,11 @@ public class Reserva extends AppCompatActivity {
 
         address.setText("Address: " + park_address);
         coordinates.setText("Coordinates: " + park_coordinates); */
-
     }
 
     public void onClickGoMaps(View v) {
         Intent intent = new Intent(getApplicationContext(), Maps.class);
         startActivity(intent);
     }
+
 }

@@ -18,7 +18,13 @@
             android:name=".Reserva2"
             android:exported="true" />
         <activity
-            android:name=".Reserva"
+            android:name=".Reserva1"
+            android:exported="true" />
+        <activity
+            android:name=".Parque2"
+            android:exported="true" />
+        <activity
+            android:name=".Parque1"
             android:exported="true" />
         <activity
             android:name=".Historico"

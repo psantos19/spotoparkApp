@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/logotopbackground"
-    tools:context=".Reserva">
+    tools:context=".Parque1">
 
     <ImageButton
         android:id="@+id/onClickGoMaps1"
@@ -75,32 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <Button
-        android:id="@+id/buttonParque2Direcoes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="92dp"
-        android:backgroundTint="#000000"
-        android:text="Direções"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonParque2Reservar"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <Button
-        android:id="@+id/buttonParque2Reservar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="21dp"
-        android:backgroundTint="#000000"
-        android:text="Reservar"
-        app:layout_constraintEnd_toStartOf="@+id/buttonParque2Direcoes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -113,4 +87,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onClickGoMaps1" />
+
+    <Button
+        android:id="@+id/buttonReserva1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="212dp"
+        android:backgroundTint="#000000"
+        android:onClick="onCLickGoReserva1"
+        android:text="Fazer Reserva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

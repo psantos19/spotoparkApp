@@ -59,7 +59,6 @@ public class Reserva1 extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void onCLickGoParque1(View v) {

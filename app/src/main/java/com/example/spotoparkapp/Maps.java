@@ -294,11 +294,10 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
         //directions.setVisibility(View.VISIBLE);
 
-        for (int i = 0; i < markers.size(); i++){
-            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        for (int i = 0; i < markers.size(); i++) {
+            markerOne.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
             if (markers.get(i).getId().equals(marker.getId())) {
-
-                LatLng location = markers.get(i).getPosition();
+                LatLng location = markerOne.getPosition();
             }
         }
         marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));

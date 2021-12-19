@@ -241,7 +241,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         if (marker.getTitle().equals("Fazer Reserva 1")) {
             Intent intent = new Intent(getApplicationContext(), Parque1.class);
             startActivity(intent);
-        }else if (marker.getTitle().equals("Fazer Reserva 2")){
+        }else if (marker.getTitle().equals("Fazer Reserva 2")) {
             Intent intent = new Intent(getApplicationContext(), Parque2.class);
             startActivity(intent);
         }

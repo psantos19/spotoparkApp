@@ -32,44 +32,56 @@
         android:id="@+id/menuButton"
         android:layout_width="47dp"
         android:layout_height="49dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="664dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/ic_baseline_menu_24"
         android:onClick="onClickGoMenu"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_location"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/SearchBar"
         android:layout_width="326dp"
         android:layout_height="47dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="-713dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="-715dp"
+        android:layout_marginEnd="22dp"
         android:background="@drawable/bg_round"
         android:ems="10"
         android:hint="   Insira o destino..."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="-320dp"
+        android:layout_marginTop="-715dp"
+        android:layout_marginEnd="-315dp"
         android:onClick="onClickSearch"
         app:layout_constraintEnd_toStartOf="@+id/SearchBar"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:srcCompat="@drawable/ic_baseline_search_24"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:backgroundTint="#00FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/SearchBar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_search_24" />
+        app:srcCompat="@drawable/directionsmaps"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

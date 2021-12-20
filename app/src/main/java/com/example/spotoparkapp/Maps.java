@@ -76,7 +76,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
 
         mapView = findViewById(R.id.mapView);
-        mapView.getMapAsync(this);
+        mapView.getMapAsync(Maps.this);
         mapView.onCreate(savedInstanceState);
 
         directions = findViewById(R.id.imageButton32);

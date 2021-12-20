@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class Register extends AppCompatActivity implements LocationListener {
+public class Register extends AppCompatActivity {
 
     EditText nome, password, email, bdate;
     Button BotaoRegisto;
@@ -65,25 +65,6 @@ public class Register extends AppCompatActivity implements LocationListener {
         BotaoRegisto = findViewById(R.id.Registar);
 
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
-
-
-
-        JSONArrayDownloader task = new JSONArrayDownloader();
-        try {
-            RegisterCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -111,7 +92,7 @@ public class Register extends AppCompatActivity implements LocationListener {
             @Override
             public void onClick(View view) {
                 GetPersons getUtilizadores = new GetPersons();
-                String coordinates = ("1,1");
+                String coordinates = ("1");
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 try {
 
@@ -141,7 +122,7 @@ public class Register extends AppCompatActivity implements LocationListener {
                         postData.put("password", password.getText().toString());
                         postData.put("bdate", bdate.getText().toString());
                         postData.put("email", email.getText().toString());
-                        postData.put("coordinates", coordinates);
+
 
 
 
@@ -165,10 +146,5 @@ public class Register extends AppCompatActivity implements LocationListener {
     public void onClickGoMain(View v) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-
     }
 }

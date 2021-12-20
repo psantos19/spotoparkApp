@@ -75,6 +75,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="428dp"
         android:backgroundTint="#00FFFFFF"
+        android:clickable="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/SearchBar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/directionsmaps"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:backgroundTint="#00FFFFFF"
+        android:clickable="true"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/SearchBar"
         app:layout_constraintHorizontal_bias="1.0"

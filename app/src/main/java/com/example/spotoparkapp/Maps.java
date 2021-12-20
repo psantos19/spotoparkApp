@@ -1,6 +1,7 @@
 package com.example.spotoparkapp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -59,7 +60,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     double lati, longi;
     SearchView searchView;
     private LatLng USERLOCATION;
-    private ImageButton directions;
+    private ImageButton directions,directions2, Direcoes1 , Direcoes2;
     private Marker markerOne;
     private Marker markerTwo;
     private PolylineOptions polyline1;
@@ -69,6 +70,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
 
 
+    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
@@ -80,7 +82,11 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         mapView.onCreate(savedInstanceState);
 
         directions = findViewById(R.id.imageButton32);
-        directions = binding.imageButton32;
+        directions.setVisibility(View.GONE);
+        directions2 = findViewById(R.id.imageButton33);
+        directions2.setVisibility(View.GONE);
+        //Direcoes1 = findViewById(R.id.direcoes1);
+        //Direcoes2 = findViewById(R.id.direcoes2);
 
         // 1 - Criar o location Manager para ir buscar a localização do nosso dispositivo
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -171,6 +177,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         markers.add(markerTwo);
 
         this.mMap.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) this);
+        mMap.setOnMarkerClickListener(this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED &&
@@ -248,6 +255,156 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     }
 
     @Override
+    public boolean onMarkerClick(@NonNull Marker marker) {
+
+        directions.setVisibility(View.VISIBLE);
+
+        for (int i = 0; i < markers.size(); i++) {
+            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+            if (markers.get(i).getTitle().equals(marker.getTitle())) {
+
+                LatLng location = markers.get(i).getPosition();
+            }
+        }
+        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
+        directions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("USERLOCATION", "" + USERLOCATION);
+                String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
+                String end = String.valueOf(marker.getPosition().latitude) + "," + String.valueOf(marker.getPosition().longitude);
+
+                ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
+                apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
+                        .enqueue(new Callback<DirectionResponses>() {
+
+                            @Override
+                            public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
+                                drawPolyline(response);
+                                Log.d("Polylines activated", response.message());
+                            }
+
+                            @Override
+                            public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
+                                Log.e("error", t.getLocalizedMessage());
+                            }
+                        });
+
+            }
+        });
+
+
+
+        return false;
+    }
+
+    private void drawPolyline(@NonNull Response<DirectionResponses> response) {
+        if (response.body() != null) {
+            String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
+            polyline1 = new PolylineOptions()
+                    .addAll(PolyUtil.decode(shape))
+                    .width(8f)
+                    .color(Color.BLUE);
+            mMap.addPolyline(polyline1);
+        }
+    }
+
+    @Override
+    public void onMyLocationChange(@NonNull Location location) {
+        USERLOCATION = new LatLng(location.getLatitude(), location.getLongitude());
+        Log.e("Sending updates", "" + USERLOCATION);
+    }
+//Tentei fazer isto de maneira aldrabada mas ao fazre isto reparei no erro que estava na parte principal portanto yyy <<<<<<<<<<<<<<<<<<<<<<<<<<
+/*
+    public boolean onMarkerClick(Marker marker) {
+
+        if (marker.getTitle().equals(markerOne.getTitle())){
+            Log.e( "carregaste" ,"marcador1");
+            directions.setVisibility(View.VISIBLE);
+            directions2.setVisibility(View.GONE);
+        }else if (marker.getTitle().equals(markerTwo.getTitle())){
+            Log.e( "carregaste" ,"marcador2");
+            directions2.setVisibility(View.VISIBLE);
+            directions.setVisibility(View.GONE);
+        }
+        return false;
+    }
+    public void onClickDir1(View v) {
+        Log.e("USERLOCATION", "" + USERLOCATION);
+        String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
+        String end = String.valueOf(markerOne.getPosition().latitude) + "," + String.valueOf(markerOne.getPosition().longitude);
+
+        ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
+        apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
+                .enqueue(new Callback<DirectionResponses>() {
+
+                    @Override
+                    public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
+                        Log.d("Polylines activated", response.message());
+                        String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
+                        polyline1 = new PolylineOptions()
+                                .addAll(PolyUtil.decode(shape))
+                                .width(8f)
+                                .color(Color.BLUE);
+                        mMap.addPolyline(polyline1);
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
+                        Log.e("error", t.getLocalizedMessage());
+                    }
+                });
+
+    }
+    public void onClickDir2(View v) {
+        Log.e("USERLOCATION", "" + USERLOCATION);
+        String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
+        String end = String.valueOf(markerTwo.getPosition().latitude) + "," + String.valueOf(markerTwo.getPosition().longitude);
+
+        ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
+        apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
+                .enqueue(new Callback<DirectionResponses>() {
+
+                    @Override
+                    public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
+                        Log.d("Polylines activated", response.message());
+                        String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
+                        polyline1 = new PolylineOptions()
+                                .addAll(PolyUtil.decode(shape))
+                                .width(8f)
+                                .color(Color.BLUE);
+                        mMap.addPolyline(polyline1);
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
+                        Log.e("error", t.getLocalizedMessage());
+                    }
+                });
+
+    }*/
+
+
+    private interface   ApiServices {
+        @GET("maps/api/directions/json")
+        Call<DirectionResponses> getDirection(@Query("origin") String origin,
+                                              @Query("destination") String destination,
+                                              @Query("key") String apiKey);
+    }
+
+    private static class RetrofitClient {
+        static ApiServices apiServices(Context context) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(context.getResources().getString(R.string.base_url))
+                    .build();
+
+            return retrofit.create(ApiServices.class);
+        }
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         mapView.onStart();
@@ -287,83 +444,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
-    }
-
-    @Override
-    public boolean onMarkerClick(@NonNull Marker marker) {
-
-        //directions.setVisibility(View.VISIBLE);
-
-        for (int i = 0; i < markers.size(); i++) {
-            markerOne.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-            if (markers.get(i).getId().equals(marker.getId())) {
-                LatLng location = markerOne.getPosition();
-            }
-        }
-        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-
-        directions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.e("USERLOCATION", ""+USERLOCATION);
-                String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
-                String end = String.valueOf(marker.getPosition().latitude) + "," + String.valueOf(marker.getPosition().longitude);
-
-                ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
-                apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
-                        .enqueue(new Callback<DirectionResponses>() {
-
-                            @Override
-                            public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
-                                drawPolyline(response);
-                                Log.d("ok", response.message());
-                            }
-
-                            @Override
-                            public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
-                                Log.e("error", t.getLocalizedMessage());
-                            }
-                        });
-            }
-        });
-
-        return false;
-    }
-
-    @Override
-    public void onMyLocationChange(@NonNull Location location) {
-        USERLOCATION = new LatLng(location.getLatitude(), location.getLongitude());
-        //Log.e("Sending updates", "" + USERLOCATION);
-    }
-
-    private void drawPolyline(@NonNull Response<DirectionResponses> response) {
-        if (response.body() != null) {
-            String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
-            polyline1 = new PolylineOptions()
-                    .addAll(PolyUtil.decode(shape))
-                    .width(8f)
-                    .color(Color.RED);
-            googleMap.addPolyline(polyline1);
-        }
-    }
-
-    private interface ApiServices {
-        @GET("maps/api/directions/json")
-        Call<DirectionResponses> getDirection(@Query("origin") String origin,
-                                              @Query("destination") String destination,
-                                              @Query("key") String apiKey);
-    }
-
-    private static class RetrofitClient {
-        static ApiServices apiServices(Context context) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(context.getResources().getString(R.string.base_url))
-                    .build();
-
-            return retrofit.create(ApiServices.class);
-        }
     }
 
     public void onClickGoMenu(View v) {

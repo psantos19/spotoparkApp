@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button forgotPassword;
     EditText email, password;
     JSONArray LoginCredentials = null;
+    public static String USER_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,27 @@ public class MainActivity extends AppCompatActivity {
         forgotPassword = findViewById(R.id.forgotPassText);
         email = findViewById(R.id.emailLogin);
         password = findViewById(R.id.passwordLogin);
+
+        email.setText("pedrosantos@gmail.com");
+        password.setText("pedro2725");
+
+        JSONArrayDownloader task = new JSONArrayDownloader();
+
+        LoginCredentials = new JSONArray();
+        try {
+            LoginCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.e("credentials:" , ""+ LoginCredentials) ;
+
     }
 
     public void onClickLogin(View v) throws JSONException {
+
+        JSONArray test = new JSONArray();
         String Email = email.getText().toString();
         String Password = password.getText().toString();
 
@@ -56,7 +75,33 @@ public class MainActivity extends AppCompatActivity {
             password.setError("Password is to short");
         }
 
-        // JSON array downloader (liga a task)
+        JSONObject utilizador;
+        //vamos verificar se dentro do array existem as strings que o utilizador inseriu
+        for (int i = 0; i < LoginCredentials.length(); i++) {
+            utilizador = LoginCredentials.getJSONObject(i);
+
+
+            if (utilizador.getString("email").equals(Email) && utilizador.getString("password").equals(Password)) {
+
+                USER_ID = utilizador.getString("id");
+
+                Intent intent = new Intent(getApplicationContext(), Maps.class);
+                startActivity(intent);
+                Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+
+            } else if (utilizador.getString("email").isEmpty() && utilizador.getString("password").isEmpty()) {
+                Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
+            }else if (utilizador.getString("email").isEmpty()){
+                Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
+            }else if (utilizador.getString("password").isEmpty()){
+                Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
+            }else if (Email.isEmpty() || Password.isEmpty()) {
+                Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        /*// JSON array downloader (liga a task)
         JSONArrayDownloader task = new JSONArrayDownloader();
 
         //download dos utilizadores e mete-os dentro do array LoginCredentials
@@ -69,19 +114,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //vamos verificar se dentro do array existem as strings que o utilizador inseriu
-        //if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
-        // for (int i = 0; i < LoginCredentials.length(); i++) {
-        //   if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
-        Intent intent = new Intent(getApplicationContext(), Maps.class);
-        startActivity(intent);
-        //Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
-        // }
-    }
-    //}
+        if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
+            for (int i = 0; i < LoginCredentials.length(); i++) {
+                if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
+                    Intent intent = new Intent(getApplicationContext(), Maps.class);
+                    startActivity(intent);
+                    Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
+                }
+            }
+        }*/
 
         // so queremos dar toast disto quando o que esta no if nao acontece ou seja quando nao muda para a class Maps
         //Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
-    //}
+    }
 
 
         public void onClickRegister(View v){

@@ -187,6 +187,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         }
 
         mMap.setMyLocationEnabled(true);
+        googleMap.getUiSettings().setCompassEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
         googleMap.getUiSettings().setMapToolbarEnabled(true);
@@ -260,13 +261,13 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         directions.setVisibility(View.VISIBLE);
 
         for (int i = 0; i < markers.size(); i++) {
-            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
             if (markers.get(i).getTitle().equals(marker.getTitle())) {
 
                 LatLng location = markers.get(i).getPosition();
             }
         }
-        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
 
         directions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -313,10 +314,12 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     @Override
     public void onMyLocationChange(@NonNull Location location) {
         USERLOCATION = new LatLng(location.getLatitude(), location.getLongitude());
-        Log.e("Sending updates", "" + USERLOCATION);
+        //Log.e("Sending updates", "" + USERLOCATION);
     }
-//Tentei fazer isto de maneira aldrabada mas ao fazre isto reparei no erro que estava na parte principal portanto yyy <<<<<<<<<<<<<<<<<<<<<<<<<<
-/*
+
+    //Tentei fazer isto de maneira aldrabada mas ao fazre isto reparei no erro que estava na parte principal portanto
+
+    /*
     public boolean onMarkerClick(Marker marker) {
 
         if (marker.getTitle().equals(markerOne.getTitle())){

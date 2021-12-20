@@ -34,12 +34,10 @@ public class Perfil extends AppCompatActivity {
         JSONObjDownloader task = new JSONObjDownloader();
 
         try {
-            utilizador = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador/1").get();
+            utilizador = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador/" + MainActivity.USER_ID).get();
             utilizador_name = utilizador.getString("name");
-            utilizador_password = utilizador.getString("password");
-            utilizador_bdate = utilizador.getString("bdate");
             utilizador_email = utilizador.getString("email");
-
+            utilizador_bdate = utilizador.getString("bdate");
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -47,10 +45,6 @@ public class Perfil extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d(TAG , "utilizador name " + utilizador_name);
-        Log.d(TAG , "Utilizador password " + utilizador_password);
-        Log.d(TAG , "utilizador bdate " + utilizador_bdate);
-        Log.d(TAG , "utilizador email " + utilizador_email);
 
         Button editarperfil = (Button) findViewById(R.id.editarperfil);
         editarperfil.setOnClickListener(this::editOnClick);

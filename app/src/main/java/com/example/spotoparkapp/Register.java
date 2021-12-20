@@ -1,38 +1,56 @@
 package com.example.spotoparkapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.spotoparkapp.downloaders.GetPersons;
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.example.spotoparkapp.downloaders.PostData;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements LocationListener {
 
     EditText nome, password, email, bdate;
     Button BotaoRegisto;
     JSONArray RegisterCredentials;
+    JSONArray Credentials;
     String utlizador_name;
     String utilizador_password;
     String utilizador_bdate;
     String utilizador_email;
     String utilizador_coordinates;
     String utilizador_id;
+    String postBDate;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +62,104 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.passwordRegister);
         email = findViewById(R.id.emailRegister);
         bdate = findViewById(R.id.bdateRegister);
+        BotaoRegisto = findViewById(R.id.Registar);
 
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
+
+
+
+        JSONArrayDownloader task = new JSONArrayDownloader();
+        try {
+            RegisterCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        bdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        month = month + 1;
+                        postBDate = year + "-" + month + "-" + day;
+                        String date = year + "/" + month + "/" + day;
+                        bdate.setText(date);
+                    }
+                }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+
+
+        BotaoRegisto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GetPersons getUtilizadores = new GetPersons();
+                String coordinates = ("1,1");
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                try {
+
+                    Credentials = getUtilizadores.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
+                    JSONObject aux = new JSONObject(Credentials.get(0).toString());
+
+                    if (nome.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Favor preencher o campo em vermelho", Toast.LENGTH_SHORT).show();
+                        nome.setHintTextColor(Color.RED);
+                    }
+                    if (bdate.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Favor preencher o campo em vermelho", Toast.LENGTH_SHORT).show();
+                        bdate.setHintTextColor(Color.RED);
+                    }
+                    if (password.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Favor preencher o campo em vermelho", Toast.LENGTH_SHORT).show();
+                        password.setHintTextColor(Color.RED);
+                    }
+                    if (email.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Favor preencher o campo em vermelho", Toast.LENGTH_SHORT).show();
+                        email.setHintTextColor(Color.RED);
+                    }
+                    else
+                        {
+                        Map<String, String> postData = new HashMap<>();
+                        postData.put("name", nome.getText().toString());
+                        postData.put("password", password.getText().toString());
+                        postData.put("bdate", bdate.getText().toString());
+                        postData.put("email", email.getText().toString());
+                        postData.put("coordinates", coordinates);
+
+
+
+                        PostData task2 = new PostData(postData);
+                        task2.execute("https://spotopark-projeto.herokuapp.com/api/utilizador/new");
+
+
+                        Toast.makeText(getApplicationContext(), "Welcome ! " + nome.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Log.e("Id Sign up activity", ""+ postData.toString());
+
+                        startActivity(i);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Credentials = null;
+                }
+            }
+        });
     }
 
     public void onClickGoMain(View v) {
@@ -52,40 +167,8 @@ public class Register extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickRegComplete(View v) {
-        String Nome = nome.getText().toString().trim();
-        String Password = password.getText().toString().trim();
-        String Email = email.getText().toString().trim();
-        String Bdate = bdate.getText().toString().trim();
-
-        if (TextUtils.isEmpty(Nome)) {
-            nome.setError("Name required!");
-        }
-        if (TextUtils.isEmpty(Email)) {
-            email.setError("Email required!");
-        }
-        if (Password.length() < 6) {
-            password.setError("Password must be over 6 digits");
-        }
-        if (TextUtils.isEmpty(Password)) {
-            password.setError("Password is required");
-        }
-        if (TextUtils.isEmpty(Bdate)) {
-            bdate.setError("Insert date of birth");
-        }
-
-        // isto é para pegar dados da BD
-        /*JSONArrayDownloader task = new JSONArrayDownloader();
-
-        //download spots
-        try {
-            RegisterCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
 
     }
 }

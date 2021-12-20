@@ -122,7 +122,7 @@ public class Register extends AppCompatActivity {
                         postData.put("password", password.getText().toString());
                         postData.put("bdate", bdate.getText().toString());
                         postData.put("email", email.getText().toString());
-
+                        postData.put("coordinates", coordinates);
 
 
 

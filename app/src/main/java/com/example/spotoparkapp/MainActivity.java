@@ -64,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickLogin(View v) throws JSONException {
 
+        JSONArrayDownloader task = new JSONArrayDownloader();
+
+        LoginCredentials = new JSONArray();
+        try {
+            LoginCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.e("credentials:" , ""+ LoginCredentials) ;
+
         JSONArray test = new JSONArray();
         String Email = email.getText().toString();
         String Password = password.getText().toString();

@@ -33,7 +33,7 @@ public class Reserva1 extends AppCompatActivity {
     EditText text;
     Button button;
     ImageView QRcode;
-    JSONArray Reserve;
+    JSONArray Reserve = null;
     String parkingslot;
     String parkingParkId;
     String tipolugar;
@@ -45,7 +45,6 @@ public class Reserva1 extends AppCompatActivity {
         text = findViewById(R.id.inputText);
         button = findViewById(R.id.btQR);
         QRcode = findViewById(R.id.imageQR);
-        String parkType = text.getText().toString().trim();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,35 +53,44 @@ public class Reserva1 extends AppCompatActivity {
                 // a hora para que quer reservar
                 // por quanto tempo quer reservar
                 JSONArrayDownloader task = new JSONArrayDownloader();
+                Reserve = new JSONArray();
 
                 if (TextUtils.isEmpty(text.getText().toString())) {
                     text.setError("Type required!");
                 }
 
-                tipolugar = text.getText().toString();
-
                 try {
                     Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking/parking_slot/1").get();
-                    Log.e("Lugares", ""+Reserve);
-                    Reserve.toString();
-                    //parkingslot = Reserve.getInt(Integer.parseInt("parkingSlotNumber"));
-                    //Log.e("Slots =", "" + parkingslot);
-                    //parkingParkId = Reserve.getString("parkingParkId");
-                    for (int i = 0; i < Reserve.length(); i++ ) {
-                        if (Reserve.getString(i).contains("'parkingTypeId':1") && tipolugar.equals("1")){
-                           parkingslot = Reserve.getString(Integer.parseInt("parkingSlotNumber"));
-                        }
-
-                    }
 
                 } catch (ExecutionException e) {
                     e.printStackTrace();
-                } catch (InterruptedException | JSONException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                Log.e("Lugares", ""+Reserve);
+
+
+                tipolugar = text.getText().toString(); // valor introduzido pelo utilizador
+
+                JSONObject booking;
+
+                for (int i = 0; i < Reserve.length(); i++) {
+                    booking = Reserve.getJSONObject(i);
+
+
+                    if (booking.getString("parkingTypeId:1").equals("parkingTypeId:" + text)) {
+
+                        parkingslot = booking.getString("id");
+                        break;
+
+                    }
                 }
 
 
-                //Obter o valor através do edit text
+
+
+
+
 
                 //Inicializar a multi format writer
                MultiFormatWriter writer = new MultiFormatWriter();

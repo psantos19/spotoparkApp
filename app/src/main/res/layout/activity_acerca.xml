@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="346dp"
+        android:fontFamily="@font/paytone_one"
         android:text="Menu"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backToMenu5" />
 
@@ -42,6 +43,8 @@
         android:layout_marginStart="184dp"
         android:layout_marginTop="172dp"
         android:layout_marginEnd="184dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/peralta"
         android:text="Acerca"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -49,34 +52,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="530dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="5dp"
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="10dp"
+        android:text="          Esta aplicação visa facilitar a vida de pessoas que se deslocam regularmente nos seus veículos. Vai permitir encontrar lugares em parques de estacionamento (fornecidos por nós) e com isso perder menos tempo na procura dos mesmos, assim o trajeto como por exemplo casa-trabalho tornar-se-á num trajeto mais eficiente ou mais rápido. Além disso, a aplicação permite às pessoas obter informações detalhadas como por exemplo o preço do estacionamento que escolheram, o tipo de estacionamento, o trajeto a percorrer até ao parque de estacionamento e ainda permite fazer o pagamento deste na própria app. A SpoToPark irá disponibilizar parques para reserva de lugares de estacionamento onde os utilizadores irão ter a opção para fazer a reserva de lugares de estacionamento com 24 horas de antecedência."
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
-        tools:ignore="SpeakableTextPresentCheck">
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="130dp"
+        android:text="SpoToPark - Portugal"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elegantTextHeight="true"
-                android:text="          A SpoToPark é uma aplicação que ajuda os cidadãos que conduzam regularmente e que tenham necessidade de se encontrarem num local a uma certa hora, com pagamento na própria aplicação e reserva obrigatória pois os parques de estacionamento só se vão encontrar disponíveis para utilizadores da nossa aplicação, fornece ainda a motoristas orientação em tempo real dos parques disponíveis à sua volta o que melhora assim o acesso a locais desejados pelos cidadãos, tornando as cidades em cidades mais “inteligentes”."
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#000000"
-                android:textSize="17sp" />
-        </LinearLayout>
-
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

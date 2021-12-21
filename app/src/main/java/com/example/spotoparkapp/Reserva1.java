@@ -33,9 +33,10 @@ public class Reserva1 extends AppCompatActivity {
     EditText text;
     Button button;
     ImageView QRcode;
-    JSONObject Reserve;
-    Integer parkingslot;
+    JSONArray Reserve;
+    String parkingslot;
     String parkingParkId;
+    String tipolugar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,27 +53,31 @@ public class Reserva1 extends AppCompatActivity {
                 //vai ter que pegar o tipo de lugar
                 // a hora para que quer reservar
                 // por quanto tempo quer reservar
-                JSONObjDownloader task = new JSONObjDownloader();
+                JSONArrayDownloader task = new JSONArrayDownloader();
 
                 if (TextUtils.isEmpty(text.getText().toString())) {
                     text.setError("Type required!");
                 }
 
+                tipolugar = text.getText().toString();
+
                 try {
                     Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking/parking_slot/1").get();
-                    parkingslot = Reserve.getInt("parkingSlotNumber");
-                    Log.e("Slots =", "" + parkingslot);
+                    Log.e("Lugares", ""+Reserve);
+                    Reserve.toString();
+                    //parkingslot = Reserve.getInt(Integer.parseInt("parkingSlotNumber"));
+                    //Log.e("Slots =", "" + parkingslot);
                     //parkingParkId = Reserve.getString("parkingParkId");
-                   // if (parkType.equals("1")) {
+                    for (int i = 0; i < Reserve.length(); i++ ) {
+                        if (Reserve.getString(i).contains("'parkingTypeId':1") && tipolugar.equals("1")){
+                           parkingslot = Reserve.getString(Integer.parseInt("parkingSlotNumber"));
+                        }
 
-                    //}
-
+                    }
 
                 } catch (ExecutionException e) {
                     e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
+                } catch (InterruptedException | JSONException e) {
                     e.printStackTrace();
                 }
 
@@ -80,10 +85,10 @@ public class Reserva1 extends AppCompatActivity {
                 //Obter o valor através do edit text
 
                 //Inicializar a multi format writer
-               /* MultiFormatWriter writer = new MultiFormatWriter();
+               MultiFormatWriter writer = new MultiFormatWriter();
                 try {
                     //Inicializar a bit matrix
-                    BitMatrix matrix = writer.encode(sText, BarcodeFormat.QR_CODE, 400, 400);
+                    BitMatrix matrix = writer.encode(parkingslot, BarcodeFormat.QR_CODE, 400, 400);
                     //inicializar a barcode encoder
                     BarcodeEncoder encoder = new BarcodeEncoder();
                     //Inicializar bitmap
@@ -100,10 +105,8 @@ public class Reserva1 extends AppCompatActivity {
                 }
             }
         });
-    }*/
-            }
-        });
     }
+
                 public void onCLickGoParque1 (View v){
                     Intent intent = new Intent(getApplicationContext(), Parque1.class);
                     startActivity(intent);

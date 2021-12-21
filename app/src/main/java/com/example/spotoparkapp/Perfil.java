@@ -46,9 +46,6 @@ public class Perfil extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Button editarperfil = (Button) findViewById(R.id.editarperfil);
-        editarperfil.setOnClickListener(this::editOnClick);
-
         TextView name = (TextView) findViewById(R.id.name);
         //TextView password = (TextView) findViewById(R.id.password);
         TextView bdate = (TextView) findViewById(R.id.bdate);
@@ -59,11 +56,6 @@ public class Perfil extends AppCompatActivity {
         bdate.setText("Data de Nascimento: " + utilizador_bdate);
         email.setText("Email: " + utilizador_email);
 
-    }
-
-    public void editOnClick(View v) {
-        Intent intent = new Intent(getApplicationContext(), EditarPerfil.class);
-        startActivity(intent);
     }
 
     public void onClickGoMenu(View v) {

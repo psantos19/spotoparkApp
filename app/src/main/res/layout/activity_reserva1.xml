@@ -38,8 +38,8 @@
 
     <ImageView
         android:id="@+id/imageQR"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="219dp"
+        android:layout_height="233dp"
         android:layout_marginTop="30dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter" />
@@ -55,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"/>
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <TextView
         android:id="@+id/textView11"

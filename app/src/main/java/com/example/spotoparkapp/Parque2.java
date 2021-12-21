@@ -8,6 +8,8 @@ import android.view.View;
 
 public class Parque2 extends AppCompatActivity {
 
+    public static String PARK_ID = "2";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

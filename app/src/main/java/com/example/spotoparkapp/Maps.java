@@ -267,7 +267,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
                 LatLng location = markers.get(i).getPosition();
             }
         }
-        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
 
         directions.setOnClickListener(new View.OnClickListener() {
             @Override

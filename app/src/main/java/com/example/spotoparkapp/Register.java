@@ -51,6 +51,8 @@ public class Register extends AppCompatActivity {
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
+    String dayString;
+    String monthString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +79,17 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month = month + 1;
-                        postBDate = year + "-" + month + "-" + day;
-                        String date = year + "/" + month + "/" + day;
+                        dayString = String.valueOf(day);
+                        if ( day < 10){
+                            dayString = "0" + day;
+                        }
+                        monthString = String.valueOf(month);
+                        if ( month < 10){
+                            monthString = "0" + month;
+                        }
+
+                        postBDate = year + "-" + monthString + "-" + dayString;
+                        String date = year + "-" + monthString + "-" + dayString;
                         bdate.setText(date);
                     }
                 }, year, month, day);

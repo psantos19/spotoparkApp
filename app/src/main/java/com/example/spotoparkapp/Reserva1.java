@@ -36,6 +36,18 @@ public class Reserva1 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //vai ter que pegar o tipo de lugar
+                // a hora para que quer reservar
+                // por quanto tempo quer reservar
+
+
+
+
+
+
+
+
+
                 //Obter o valor através do edit text
                 String sText = text.getText().toString().trim();
                 //Inicializar a multi format writer
@@ -60,8 +72,6 @@ public class Reserva1 extends AppCompatActivity {
             }
         });
     }
-
-
 
     public void onCLickGoParque1(View v) {
         Intent intent = new Intent(getApplicationContext(), Parque1.class);

@@ -92,7 +92,6 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 GetPersons getUtilizadores = new GetPersons();
-                String coordinates = ("1");
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 try {
 
@@ -115,16 +114,13 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Favor preencher o campo em vermelho", Toast.LENGTH_SHORT).show();
                         email.setHintTextColor(Color.RED);
                     }
-                    else
-                        {
+                    else{
+
                         Map<String, String> postData = new HashMap<>();
-                        postData.put("name", nome.getText().toString());
-                        postData.put("password", password.getText().toString());
-                        postData.put("bdate", bdate.getText().toString());
                         postData.put("email", email.getText().toString());
-                        postData.put("coordinates", coordinates);
-
-
+                        postData.put("bdate", bdate.getText().toString());
+                        postData.put("password", password.getText().toString());
+                        postData.put("name", nome.getText().toString());
 
                         PostData task2 = new PostData(postData);
                         task2.execute("https://spotopark-projeto.herokuapp.com/api/utilizador/new");

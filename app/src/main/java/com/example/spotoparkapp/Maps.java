@@ -165,12 +165,12 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
         //When map is loaded
         LatLng parque1 = new LatLng(38.706984, -9.151735);
-        markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Fazer Reserva 1").snippet("SpoToPark Parque 1")
+        markerOne = googleMap.addMarker(new MarkerOptions().position(parque1).title("Parque Santos 1").snippet("Clique para Reservar")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
 
         LatLng parque2 = new LatLng(38.708030, -9.147979);
-        markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Fazer Reserva 2").snippet("SpoToPark Parque 2")
+        markerTwo = googleMap.addMarker(new MarkerOptions().position(parque2).title("Parque Santos 2").snippet("Clique para Reservar")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         markers.add(markerOne);
@@ -246,10 +246,10 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     @Override
     public void onInfoWindowClick(Marker marker) {
 
-        if (marker.getTitle().equals("Fazer Reserva 1")) {
+        if (marker.getTitle().equals("Parque Santos 1")) {
             Intent intent = new Intent(getApplicationContext(), Parque1.class);
             startActivity(intent);
-        }else if (marker.getTitle().equals("Fazer Reserva 2")) {
+        }else if (marker.getTitle().equals("Parque Santos 2")) {
             Intent intent = new Intent(getApplicationContext(), Parque2.class);
             startActivity(intent);
         }

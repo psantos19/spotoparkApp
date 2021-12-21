@@ -24,18 +24,8 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickGoHistorico(View v) {
-        Intent intent = new Intent(getApplicationContext(), Historico.class);
-        startActivity(intent);
-    }
-
     public void onClickGoPagamento(View v) {
         Intent intent = new Intent(getApplicationContext(), Pagamento.class);
-        startActivity(intent);
-    }
-
-    public void onClickGoDefinicoes(View v) {
-        Intent intent = new Intent(getApplicationContext(), Definicoes.class);
         startActivity(intent);
     }
 

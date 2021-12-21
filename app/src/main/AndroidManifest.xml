@@ -27,22 +27,13 @@
             android:name=".Parque1"
             android:exported="true" />
         <activity
-            android:name=".Historico"
-            android:exported="true" />
-        <activity
             android:name=".Acerca"
             android:exported="true" />
         <activity
             android:name=".Suporte"
             android:exported="true" />
         <activity
-            android:name=".Definicoes"
-            android:exported="true" />
-        <activity
             android:name=".Pagamento"
-            android:exported="true" />
-        <activity
-            android:name=".EditarPerfil"
             android:exported="true" />
         <activity
             android:name=".Perfil"

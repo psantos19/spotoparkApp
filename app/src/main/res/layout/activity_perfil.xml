@@ -27,6 +27,7 @@
         android:layout_height="410dp"
         android:layout_marginTop="210dp"
         android:orientation="vertical"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,44 +36,31 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
             android:padding="20dp"
             android:text=""
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/bdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
             android:padding="20dp"
             android:text=""
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
             android:padding="20dp"
             android:text=""
-            android:textColor="#000000" />
-
-        <Button
-            android:id="@+id/editarperfil"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="92dp"
-            android:backgroundTint="@color/black"
-
-            android:clickable="true"
-            android:onClick="editOnClick"
-            android:text="Editar Perfil"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#FFFFFF"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -84,8 +72,10 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="348dp"
         android:text="Menu"
+        android:textColor="#000000"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

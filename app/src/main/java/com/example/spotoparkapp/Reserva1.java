@@ -230,7 +230,7 @@ public class Reserva1 extends AppCompatActivity {
 
 
 
-                
+
 
                 //Inicializar a multi format writer
               /* MultiFormatWriter writer = new MultiFormatWriter();
@@ -259,6 +259,5 @@ public class Reserva1 extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), Parque1.class);
                     startActivity(intent);
                 }
-
-
+                
 }

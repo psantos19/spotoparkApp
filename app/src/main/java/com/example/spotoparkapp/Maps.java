@@ -66,7 +66,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     private Marker markerTwo;
     private PolylineOptions polyline1;
     private GoogleMap googleMap;
-    ActivityMapsBinding binding;
     private ArrayList<Marker> markers;
     private List<Polyline> polylines = null;
 
@@ -76,8 +75,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
-        binding = ActivityMapsBinding.inflate(getLayoutInflater());
 
         mapView = findViewById(R.id.mapView);
         mapView.getMapAsync(Maps.this);
@@ -272,13 +269,13 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         directions.setVisibility(View.VISIBLE);
 
         for (int i = 0; i < markers.size(); i++) {
-            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+            markers.get(i).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
             if (markers.get(i).getTitle().equals(marker.getTitle())) {
 
                 LatLng location = markers.get(i).getPosition();
             }
         }
-        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+        marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
 
         directions.setOnClickListener(new View.OnClickListener() {
             @Override

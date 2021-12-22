@@ -26,6 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class Reserva1 extends AppCompatActivity {
@@ -45,6 +48,7 @@ public class Reserva1 extends AppCompatActivity {
         text = findViewById(R.id.inputText);
         button = findViewById(R.id.btQR);
         QRcode = findViewById(R.id.imageQR);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +78,7 @@ public class Reserva1 extends AppCompatActivity {
 
                 JSONObject booking;
 
-                for (int i = 0; i < Reserve.length(); i++) {
+                /*for (int i = 0; i < Reserve.length(); i++) {
                     booking = Reserve.getJSONObject(i);
 
 
@@ -84,7 +88,17 @@ public class Reserva1 extends AppCompatActivity {
                         break;
 
                     }
-                }
+                }*/
+
+
+                String[] lugares1 = {"11","12","13","14","15","16","17","18","19","20"};
+                List<String> lugaresType1 = new ArrayList<>(Arrays.asList(lugares1));
+                String[] lugares2 = {"1","2","3","4","5"};
+                List<String> lugaresType2 = new ArrayList<>(Arrays.asList(lugares2));
+                String[] lugares3 = {"6","7","8","9","10"};
+                List<String> lugaresType3 = new ArrayList<>(Arrays.asList(lugares2));
+
+
 
 
 

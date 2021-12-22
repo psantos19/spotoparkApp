@@ -99,14 +99,13 @@
         android:id="@+id/buttonReserva1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="448dp"
-        android:layout_marginEnd="212dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="568dp"
+        android:layout_marginEnd="130dp"
         android:backgroundTint="#000000"
         android:onClick="onCLickGoReserva1"
-        android:text="Fazer Reserva"
+        android:text="Reservar lugar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

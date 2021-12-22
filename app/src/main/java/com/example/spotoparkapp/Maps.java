@@ -36,6 +36,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.android.PolyUtil;
 
@@ -67,6 +68,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
     private GoogleMap googleMap;
     ActivityMapsBinding binding;
     private ArrayList<Marker> markers;
+    private List<Polyline> polylines = null;
 
 
 
@@ -80,6 +82,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         mapView = findViewById(R.id.mapView);
         mapView.getMapAsync(Maps.this);
         mapView.onCreate(savedInstanceState);
+        polylines = new ArrayList<com.google.android.gms.maps.model.Polyline>();
 
         directions = findViewById(R.id.imageButton32);
         directions.setVisibility(View.GONE);
@@ -194,6 +197,14 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         googleMap.getUiSettings().setCompassEnabled(true);
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
 
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                directions2.setVisibility(View.INVISIBLE);
+                erasePolylines();
+            }
+        });
+
     }
 
      public void onClickSearch(View v)
@@ -257,7 +268,7 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
-
+        erasePolylines();
         directions.setVisibility(View.VISIBLE);
 
         for (int i = 0; i < markers.size(); i++) {
@@ -307,8 +318,14 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
                     .addAll(PolyUtil.decode(shape))
                     .width(8f)
                     .color(Color.BLUE);
-            mMap.addPolyline(polyline1);
+            this.polylines.add(mMap.addPolyline(polyline1));
         }
+    }
+    private void erasePolylines(){
+        for(Polyline line : polylines){
+            line.remove();
+        }
+        polylines.clear();
     }
 
     @Override
@@ -316,77 +333,6 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Googl
         USERLOCATION = new LatLng(location.getLatitude(), location.getLongitude());
         //Log.e("Sending updates", "" + USERLOCATION);
     }
-
-    //Tentei fazer isto de maneira aldrabada mas ao fazre isto reparei no erro que estava na parte principal portanto
-
-    /*
-    public boolean onMarkerClick(Marker marker) {
-
-        if (marker.getTitle().equals(markerOne.getTitle())){
-            Log.e( "carregaste" ,"marcador1");
-            directions.setVisibility(View.VISIBLE);
-            directions2.setVisibility(View.GONE);
-        }else if (marker.getTitle().equals(markerTwo.getTitle())){
-            Log.e( "carregaste" ,"marcador2");
-            directions2.setVisibility(View.VISIBLE);
-            directions.setVisibility(View.GONE);
-        }
-        return false;
-    }
-    public void onClickDir1(View v) {
-        Log.e("USERLOCATION", "" + USERLOCATION);
-        String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
-        String end = String.valueOf(markerOne.getPosition().latitude) + "," + String.valueOf(markerOne.getPosition().longitude);
-
-        ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
-        apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
-                .enqueue(new Callback<DirectionResponses>() {
-
-                    @Override
-                    public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
-                        Log.d("Polylines activated", response.message());
-                        String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
-                        polyline1 = new PolylineOptions()
-                                .addAll(PolyUtil.decode(shape))
-                                .width(8f)
-                                .color(Color.BLUE);
-                        mMap.addPolyline(polyline1);
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
-                        Log.e("error", t.getLocalizedMessage());
-                    }
-                });
-
-    }
-    public void onClickDir2(View v) {
-        Log.e("USERLOCATION", "" + USERLOCATION);
-        String userlocationString = String.valueOf(USERLOCATION.latitude) + "," + String.valueOf(USERLOCATION.longitude);
-        String end = String.valueOf(markerTwo.getPosition().latitude) + "," + String.valueOf(markerTwo.getPosition().longitude);
-
-        ApiServices apiServices = RetrofitClient.apiServices(getApplicationContext());
-        apiServices.getDirection(userlocationString, end, getString(R.string.api_key))
-                .enqueue(new Callback<DirectionResponses>() {
-
-                    @Override
-                    public void onResponse(Call<DirectionResponses> call, retrofit2.Response<DirectionResponses> response) {
-                        Log.d("Polylines activated", response.message());
-                        String shape = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
-                        polyline1 = new PolylineOptions()
-                                .addAll(PolyUtil.decode(shape))
-                                .width(8f)
-                                .color(Color.BLUE);
-                        mMap.addPolyline(polyline1);
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<DirectionResponses> call, @NonNull Throwable t) {
-                        Log.e("error", t.getLocalizedMessage());
-                    }
-                });
-
-    }*/
 
 
     private interface   ApiServices {

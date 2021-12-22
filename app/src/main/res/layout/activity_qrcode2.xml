@@ -8,57 +8,21 @@
     android:background="#FAA0C843"
     tools:context=".QRCode1">
 
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="29dp"
-        android:text="Ao carregar em reservar aparecerá um código QR nesta página que irá ter de apresentar à entrada do parque para ser feita a verificação do lugar. O nome da reserva pode conter caracteres numéricos."
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onClickGoParque5"
-        tools:ignore="MissingConstraints" />
-
     <ImageButton
         android:id="@+id/onClickGoParque4"
         android:layout_width="37dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#076A6A6A"
         android:onClick="onCLickGoPagamento1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
-<<<<<<< Updated upstream
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="327dp"
-        android:text="Pagamento"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onClickGoParque5" />
-
-    <ImageView
-        android:id="@+id/imageQR3"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="68dp"
-=======
         android:id="@+id/textView10"
         android:layout_width="354dp"
         android:layout_height="wrap_content"
@@ -78,35 +42,15 @@
         android:layout_height="233dp"
         android:layout_marginStart="96dp"
         android:layout_marginTop="304dp"
->>>>>>> Stashed changes
         android:layout_marginEnd="96dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< Updated upstream
-        app:layout_constraintHorizontal_bias="0.506"
-=======
         app:layout_constraintHorizontal_bias="1.0"
->>>>>>> Stashed changes
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-<<<<<<< Updated upstream
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="141dp"
-        android:fontFamily="monospace"
-        android:text="Código QR"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView29"
-        app:layout_constraintTop_toTopOf="parent" />
-=======
         android:id="@+id/textView32"
         android:layout_width="193dp"
         android:layout_height="31dp"
@@ -150,6 +94,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
->>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>

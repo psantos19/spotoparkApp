@@ -87,6 +87,7 @@ public class Reserva1 extends AppCompatActivity {
                 Reserve = new JSONArray();
 
                 Random r = new Random();
+                Intent intent = new Intent(getApplicationContext(), pagamento1.class);
 
                 if (type.getSelectedItem().toString().equals(": 1 - Normal"))
                 {
@@ -225,6 +226,7 @@ public class Reserva1 extends AppCompatActivity {
                     }
                     Log.e("lugares = ", ""+lugares);
                 }
+                startActivity(intent);
 
 
 

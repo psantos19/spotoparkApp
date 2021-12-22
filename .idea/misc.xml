@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_maps.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_parque1.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_parque2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_perfil.xml" value="0.176" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_qrcode1.xml" value="0.4" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_qrcode2.xml" value="0.2" />
         <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_reserva1.xml" value="0.264" />
+        <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp-master/app/src/main/res/layout/activity_reserva2.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_map.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Duarte/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_maps.xml" value="0.25416666666666665" />
@@ -15,36 +22,35 @@
         <entry key="..\:/Users/pedro/Downloads/spotoparkApp/app/src/main/res/layout/activity_map.xml" value="0.25" />
         <entry key="..\:/Users/pedro/Downloads/spotoparkApp/app/src/main/res/layout/activity_maps.xml" value="0.25" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_forum_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_payment_24.xml" value="0.37864583333333335" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_baseline_security_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_acerca.xml" value="0.34186046511627904" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_editar_perfil.xml" value="0.25" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.3625" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_maps.xml" value="0.25" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_menu.xml" value="0.264" />
+        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_menu.xml" value="0.4" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_open_app.xml" value="0.3484375" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_pagamento.xml" value="0.2477355072463768" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_pagamento1.xml" value="0.2477355072463768" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_pagamento2.xml" value="0.2359375" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_parque1.xml" value="0.33" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_parque2.xml" value="0.3625" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_perfil.xml" value="0.3549209586945436" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_qrcode1.xml" value="0.4" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_qrcode2.xml" value="0.4" />
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_register.xml" value="0.3625" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_reserva.xml" value="0.33" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_reserva1.xml" value="0.33" />
         <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_reserva2.xml" value="0.33" />
-        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_suporte.xml" value="0.264" />
+        <entry key="..\:/Users/pedro/OneDrive/Ambiente de Trabalho/spotoparkApp/app/src/main/res/layout/activity_suporte.xml" value="0.4" />
       </map>
     </option>
   </component>

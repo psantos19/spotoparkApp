@@ -55,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
         LoginCredentials = new JSONArray();
         try {
             LoginCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         Log.e("credentials:" , ""+ LoginCredentials);
@@ -113,34 +111,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
             }
             Utilizador[0] = USER_ID;
+            Log.e("",""+Utilizador[0]);
 
         }
 
-        /*// JSON array downloader (liga a task)
-        JSONArrayDownloader task = new JSONArrayDownloader();
-
-        //download dos utilizadores e mete-os dentro do array LoginCredentials
-        try {
-            LoginCredentials = task.execute("https://spotopark-projeto.herokuapp.com/api/utilizador").get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //vamos verificar se dentro do array existem as strings que o utilizador inseriu
-        if (LoginCredentials != null && Email.length()>0 && Password.length()>0) {
-            for (int i = 0; i < LoginCredentials.length(); i++) {
-                if (LoginCredentials.get(i).toString().contains(Email) && LoginCredentials.get(i).toString().contains(Password)) {
-                    Intent intent = new Intent(getApplicationContext(), Maps.class);
-                    startActivity(intent);
-                    Log.e(String.valueOf(this), LoginCredentials.get(i).toString());
-                }
-            }
-        }*/
-
-        // so queremos dar toast disto quando o que esta no if nao acontece ou seja quando nao muda para a class Maps
-        //Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
     }
 
 

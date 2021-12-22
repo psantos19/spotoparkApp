@@ -7,45 +7,6 @@
     android:background="@drawable/logotopbackground"
     tools:context=".Menu">
 
-    <Button
-        android:id="@+id/Pagamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="143dp"
-        android:backgroundTint="#000000"
-        android:onClick="onClickGoPagamento"
-        android:text="Pagamento"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileButton" />
-
-    <Button
-        android:id="@+id/Suporte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="169dp"
-        android:backgroundTint="#000000"
-        android:onClick="onClickGoSuporte"
-        android:text="Suporte"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pagamento" />
-
-    <Button
-        android:id="@+id/Acerca"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="177dp"
-        android:backgroundTint="#000000"
-        android:onClick="onClickGoAcerca"
-        android:text="Acerca"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Suporte" />
-
     <ImageButton
         android:id="@+id/backToMap"
         android:layout_width="46dp"
@@ -65,12 +26,107 @@
         android:layout_width="55dp"
         android:layout_height="48dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="164dp"
         android:layout_marginEnd="51dp"
         app:layout_constraintEnd_toStartOf="@+id/profileButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/spotoparklogosmall" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="54dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="53dp"
+        app:layout_constraintEnd_toStartOf="@+id/Suporte"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_baseline_forum_24" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="53dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="54dp"
+        app:layout_constraintEnd_toStartOf="@+id/Acerca"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/ic_baseline_info_24" />
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#000000"
+        android:onClick="onClickGoProfile"
+        android:text="Perfil"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/Pagamento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="58dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="48dp"
+        android:background="#00000000"
+        android:backgroundTint="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/Pagamento"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/ic_baseline_payment_24" />
+
+    <Button
+        android:id="@+id/Acerca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="176dp"
+        android:backgroundTint="#000000"
+        android:onClick="onClickGoAcerca"
+        android:text="Acerca"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Suporte" />
+
+    <Button
+        android:id="@+id/Suporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="168dp"
+        android:backgroundTint="#000000"
+        android:onClick="onClickGoSuporte"
+        android:text="Suporte"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pagamento" />
+
+    <Button
+        android:id="@+id/Pagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="140dp"
+        android:backgroundTint="#000000"
+        android:onClick="onClickGoPagamento"
+        android:text="Pagamento"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileButton" />
 
     <TextView
         android:id="@+id/textView"
@@ -87,57 +143,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backToMap" />
 
-    <Button
-        android:id="@+id/profileButton"
+    <TextView
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="183dp"
-        android:layout_marginBottom="51dp"
-        android:backgroundTint="#000000"
-        android:onClick="onClickGoProfile"
-        android:text="Perfil"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/Pagamento"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="180dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Menu"
+        android:textColor="#000000"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="58dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="48dp"
-        android:background="#00000000"
-        android:backgroundTint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/Pagamento"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/ic_baseline_payment_24" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="54dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="53dp"
-        app:layout_constraintEnd_toStartOf="@+id/Suporte"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/ic_baseline_forum_24" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="53dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="54dp"
-        app:layout_constraintEnd_toStartOf="@+id/Acerca"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/ic_baseline_info_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

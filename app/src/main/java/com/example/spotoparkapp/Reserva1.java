@@ -87,7 +87,7 @@ public class Reserva1 extends AppCompatActivity {
                 Reserve = new JSONArray();
 
                 Random r = new Random();
-                Intent intent = new Intent(getApplicationContext(), pagamento1.class);
+                Intent intent = new Intent(getApplicationContext(), Pagamento1.class);
 
                 if (type.getSelectedItem().toString().equals(": 1 - Normal"))
                 {

@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.emailLogin);
         password = findViewById(R.id.passwordLogin);
 
+        //set texts para corrermos a aplicação sem termos de
+        //estar sempre a introduzir um utilizador registado na base de dados
         email.setText("pedrosantos@gmail.com");
         password.setText("pedro2725");
 

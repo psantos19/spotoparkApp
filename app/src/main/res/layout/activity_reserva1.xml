@@ -11,13 +11,11 @@
     android:padding="16dp"
     tools:context=".Reserva1">
 
-    <EditText
-        android:id="@+id/inputText"
-        android:layout_width="338dp"
-        android:layout_height="37dp"
-        android:background="@android:drawable/editbox_background"
-        android:hint="Insira o tipo de lugar"
-        android:textColorHint="#000000" />
+    <Spinner
+        android:id="@+id/spinnerType"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btQR"

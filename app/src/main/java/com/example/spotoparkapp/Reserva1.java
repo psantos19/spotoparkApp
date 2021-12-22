@@ -10,9 +10,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
 import com.example.spotoparkapp.downloaders.JSONObjDownloader;
@@ -38,8 +40,11 @@ public class Reserva1 extends AppCompatActivity {
     ImageView QRcode;
     JSONArray Reserve = null;
     String parkingslot;
-    String parkingParkId;
     String tipolugar;
+
+    ArrayAdapter<String> adapterType;
+    ArrayList<String> listType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,21 @@ public class Reserva1 extends AppCompatActivity {
         text = findViewById(R.id.inputText);
         button = findViewById(R.id.btQR);
         QRcode = findViewById(R.id.imageQR);
+
+        Spinner type = (Spinner) findViewById(R.id.spinnerType);
+
+        listType = new ArrayList<>();
+
+        listType.add("1 - Normal");
+        listType.add("2 - Handicap");
+        listType.add("3 - Eletric");
+        listType.add("4 - Motorcycle");
+        listType.add("5 - Covered");
+
+
+        adapterType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listType);
+        adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type.setAdapter(adapterType);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +78,8 @@ public class Reserva1 extends AppCompatActivity {
                 // por quanto tempo quer reservar
                 JSONArrayDownloader task = new JSONArrayDownloader();
                 Reserve = new JSONArray();
+
+                tipolugar = type.getSelectedItem().toString();
 
                 if (TextUtils.isEmpty(text.getText().toString())) {
                     text.setError("Type required!");

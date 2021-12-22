@@ -9,7 +9,7 @@ import android.widget.Spinner;
 
 public class Parque1 extends AppCompatActivity {
 
-    public static String PARK_ID = "1";
+    public static String PARK_ID = "Parque 1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

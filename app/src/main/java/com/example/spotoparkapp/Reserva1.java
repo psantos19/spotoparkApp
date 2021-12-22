@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 public class Reserva1 extends AppCompatActivity {
@@ -71,6 +72,10 @@ public class Reserva1 extends AppCompatActivity {
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type.setAdapter(adapterType);
 
+        tipolugar = type.getSelectedItem().toString();
+        Log.e("Tipo Lugar = ", ""+tipolugar);
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,14 +86,9 @@ public class Reserva1 extends AppCompatActivity {
                 JSONArrayDownloader task = new JSONArrayDownloader();
                 Reserve = new JSONArray();
 
-                tipolugar = type.getSelectedItem().toString();
+                Random r = new Random();
 
-                tipolugar = text.getText().toString();
-
-                if (TextUtils.isEmpty(text.getText().toString())) {
-                    text.setError("Type required!");
-                }
-                if (tipolugar.equals("1"))
+                if (type.getSelectedItem().toString().equals(": 1 - Normal"))
                 {
                     try
                     {
@@ -100,6 +100,9 @@ public class Reserva1 extends AppCompatActivity {
                             obj =Reserve.getJSONObject(i);
                             lugares.add(obj.getInt("parkingSlotNumber"));
                         }
+                        int randomNumber = r.nextInt(lugares.size());
+                        MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
+                        lugares.remove(randomNumber);
 
 
 
@@ -114,7 +117,7 @@ public class Reserva1 extends AppCompatActivity {
 
 
                 }
-                else if (tipolugar.equals("2"))
+                else if (type.getSelectedItem().toString().equals("2 - Handicap"))
                 {
                     try
                     {
@@ -126,6 +129,9 @@ public class Reserva1 extends AppCompatActivity {
                             obj =Reserve.getJSONObject(i);
                             lugares.add(obj.getInt("parkingSlotNumber"));
                         }
+                        int randomNumber = r.nextInt(lugares.size());
+                        MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
+                        lugares.remove(randomNumber);
 
 
 
@@ -138,7 +144,7 @@ public class Reserva1 extends AppCompatActivity {
                     }
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (tipolugar.equals("3"))
+                else if (type.getSelectedItem().toString().equals("3 - Eletric"))
                 {
                     try
                     {
@@ -150,6 +156,9 @@ public class Reserva1 extends AppCompatActivity {
                             obj =Reserve.getJSONObject(i);
                             lugares.add(obj.getInt("parkingSlotNumber"));
                         }
+                        int randomNumber = r.nextInt(lugares.size());
+                        MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
+                        lugares.remove(randomNumber);
 
 
 
@@ -162,7 +171,7 @@ public class Reserva1 extends AppCompatActivity {
                     }
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (tipolugar.equals("4"))
+                else if (type.getSelectedItem().toString().equals("4 - Motorcycle"))
                 {
                     try
                     {
@@ -174,6 +183,9 @@ public class Reserva1 extends AppCompatActivity {
                             obj =Reserve.getJSONObject(i);
                             lugares.add(obj.getInt("parkingSlotNumber"));
                         }
+                        int randomNumber = r.nextInt(lugares.size());
+                        MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
+                        lugares.remove(randomNumber);
 
 
 
@@ -186,7 +198,7 @@ public class Reserva1 extends AppCompatActivity {
                     }
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (tipolugar.equals("5"))
+                else if (type.getSelectedItem().toString().equals("5 - Covered"))
                 {
                     try
                     {
@@ -198,6 +210,9 @@ public class Reserva1 extends AppCompatActivity {
                             obj =Reserve.getJSONObject(i);
                             lugares.add(obj.getInt("parkingSlotNumber"));
                         }
+                        int randomNumber = r.nextInt(lugares.size());
+                        MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
+                        lugares.remove(randomNumber);
 
 
 

@@ -18,7 +18,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/butaoQR"
+        android:id="@+id/button"
         android:layout_width="131dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

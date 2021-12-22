@@ -47,10 +47,10 @@ public class Reserva2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserva1);
+        setContentView(R.layout.activity_reserva2);
 
         //text = findViewById(R.id.inputText);
-        button = findViewById(R.id.btQR);
+        button = findViewById(R.id.button); 
         //QRcode = findViewById(R.id.imageQR);
 
         Spinner type = (Spinner) findViewById(R.id.spinnerType);

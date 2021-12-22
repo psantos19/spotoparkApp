@@ -255,9 +255,9 @@ public class Reserva1 extends AppCompatActivity {
         });
     }
 
-                public void onCLickGoParque1 (View v){
-                    Intent intent = new Intent(getApplicationContext(), Parque1.class);
-                    startActivity(intent);
-                }
+    public void onCLickGoParque1 (View v){
+        Intent intent = new Intent(getApplicationContext(), Parque1.class);
+        startActivity(intent);
+    }
                 
 }

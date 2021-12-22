@@ -50,7 +50,7 @@ public class Reserva2 extends AppCompatActivity {
         setContentView(R.layout.activity_reserva2);
 
         //text = findViewById(R.id.inputText);
-        button = findViewById(R.id.button); 
+        button = findViewById(R.id.button);
         //QRcode = findViewById(R.id.imageQR);
 
         Spinner type = (Spinner) findViewById(R.id.spinnerType);

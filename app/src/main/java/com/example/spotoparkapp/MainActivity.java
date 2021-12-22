@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     EditText email, password;
     JSONArray LoginCredentials = null;
     public static String USER_ID;
+    public static String[] Utilizador = new String[4];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }else if (Email.isEmpty() || Password.isEmpty()) {
                 Toast.makeText(this, "Credenciais erradas!!! Verifique se está tudo bem!!!", Toast.LENGTH_SHORT).show();
             }
+            Utilizador[0] = USER_ID;
 
         }
 

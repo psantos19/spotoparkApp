@@ -40,6 +40,7 @@ public class Reserva1 extends AppCompatActivity {
     String parkingslot;
     String parkingParkId;
     String tipolugar;
+    private ArrayList<Integer> lugares;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,45 +59,132 @@ public class Reserva1 extends AppCompatActivity {
                 // por quanto tempo quer reservar
                 JSONArrayDownloader task = new JSONArrayDownloader();
                 Reserve = new JSONArray();
-
+                tipolugar = text.getText().toString();
                 if (TextUtils.isEmpty(text.getText().toString())) {
                     text.setError("Type required!");
                 }
-
-                try {
-                    Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking/parking_slot/1").get();
-
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Log.e("Lugares", ""+Reserve);
-
-
-                tipolugar = text.getText().toString(); // valor introduzido pelo utilizador
-
-                JSONObject booking;
-
-                /*for (int i = 0; i < Reserve.length(); i++) {
-                    booking = Reserve.getJSONObject(i);
+                if (tipolugar.equals("1"))
+                {
+                    try
+                    {
+                        Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking_slot/parking1/1").get();
+                        JSONObject obj;
+                        lugares = new ArrayList<>();
+                        for (int i = 0; i < Reserve.length(); i++)
+                        {
+                            obj =Reserve.getJSONObject(i);
+                            lugares.add(obj.getInt("parkingSlotNumber"));
+                        }
 
 
-                    if (booking.getString("parkingTypeId:1").equals("parkingTypeId:" + text)) {
 
-                        parkingslot = booking.getString("id");
-                        break;
-
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                }*/
+                    Log.e("lugares = ", ""+lugares);
 
 
-                String[] lugares1 = {"11","12","13","14","15","16","17","18","19","20"};
-                List<String> lugaresType1 = new ArrayList<>(Arrays.asList(lugares1));
-                String[] lugares2 = {"1","2","3","4","5"};
-                List<String> lugaresType2 = new ArrayList<>(Arrays.asList(lugares2));
-                String[] lugares3 = {"6","7","8","9","10"};
-                List<String> lugaresType3 = new ArrayList<>(Arrays.asList(lugares2));
+                }
+                else if (tipolugar.equals("2"))
+                {
+                    try
+                    {
+                        Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking_slot/parking1/2").get();
+                        JSONObject obj;
+                        lugares = new ArrayList<>();
+                        for (int i = 0; i < Reserve.length(); i++)
+                        {
+                            obj =Reserve.getJSONObject(i);
+                            lugares.add(obj.getInt("parkingSlotNumber"));
+                        }
+
+
+
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("lugares = ", ""+lugares);
+                }
+                else if (tipolugar.equals("3"))
+                {
+                    try
+                    {
+                        Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking_slot/parking1/3").get();
+                        JSONObject obj;
+                        lugares = new ArrayList<>();
+                        for (int i = 0; i < Reserve.length(); i++)
+                        {
+                            obj =Reserve.getJSONObject(i);
+                            lugares.add(obj.getInt("parkingSlotNumber"));
+                        }
+
+
+
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("lugares = ", ""+lugares);
+                }
+                else if (tipolugar.equals("4"))
+                {
+                    try
+                    {
+                        Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking_slot/parking1/4").get();
+                        JSONObject obj;
+                        lugares = new ArrayList<>();
+                        for (int i = 0; i < Reserve.length(); i++)
+                        {
+                            obj =Reserve.getJSONObject(i);
+                            lugares.add(obj.getInt("parkingSlotNumber"));
+                        }
+
+
+
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("lugares = ", ""+lugares);
+                }
+                else if (tipolugar.equals("5"))
+                {
+                    try
+                    {
+                        Reserve = task.execute("https://spotopark-projeto.herokuapp.com/api/parking_slot/parking1/5").get();
+                        JSONObject obj;
+                        lugares = new ArrayList<>();
+                        for (int i = 0; i < Reserve.length(); i++)
+                        {
+                            obj =Reserve.getJSONObject(i);
+                            lugares.add(obj.getInt("parkingSlotNumber"));
+                        }
+
+
+
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("lugares = ", ""+lugares);
+                }
 
 
 
@@ -107,7 +195,7 @@ public class Reserva1 extends AppCompatActivity {
 
 
                 //Inicializar a multi format writer
-               MultiFormatWriter writer = new MultiFormatWriter();
+              /* MultiFormatWriter writer = new MultiFormatWriter();
                 try {
                     //Inicializar a bit matrix
                     BitMatrix matrix = writer.encode(parkingslot, BarcodeFormat.QR_CODE, 400, 400);
@@ -124,7 +212,7 @@ public class Reserva1 extends AppCompatActivity {
                     manager.hideSoftInputFromWindow(text.getApplicationWindowToken(), 0);
                 } catch (WriterException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         });
     }

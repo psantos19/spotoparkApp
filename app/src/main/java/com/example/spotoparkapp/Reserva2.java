@@ -103,11 +103,7 @@ public class Reserva2 extends AppCompatActivity {
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -132,11 +128,7 @@ public class Reserva2 extends AppCompatActivity {
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -159,11 +151,7 @@ public class Reserva2 extends AppCompatActivity {
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -186,11 +174,7 @@ public class Reserva2 extends AppCompatActivity {
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -213,14 +197,11 @@ public class Reserva2 extends AppCompatActivity {
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
+                    Log.e("Spot =",""+MainActivity.Utilizador[1]);
                 }
                 startActivity(intent);
 

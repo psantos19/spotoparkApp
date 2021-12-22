@@ -21,10 +21,10 @@ import java.util.concurrent.ExecutionException;
 public class Perfil extends AppCompatActivity {
 
     JSONObject utilizador ;
-    String utilizador_name;
-    String utilizador_password;
-    String utilizador_bdate;
-    String utilizador_email;
+    public static String utilizador_name;
+    public static String utilizador_password;
+    public static String utilizador_bdate;
+    public static String utilizador_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class Perfil extends AppCompatActivity {
             utilizador_name = utilizador.getString("name");
             utilizador_email = utilizador.getString("email");
             utilizador_bdate = utilizador.getString("bdate");
+            Log.e("",""+ utilizador_name);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

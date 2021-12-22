@@ -40,7 +40,6 @@ public class Reserva1 extends AppCompatActivity {
     Button button;
     ImageView QRcode;
     JSONArray Reserve = null;
-    String parkingslot;
     String tipolugar;
 
     ArrayAdapter<String> adapterType;
@@ -60,7 +59,7 @@ public class Reserva1 extends AppCompatActivity {
         Spinner type = (Spinner) findViewById(R.id.spinnerType);
 
         listType = new ArrayList<>();
-
+        listType.add("Escolha tipo de parque");
         listType.add("1 - Normal");
         listType.add("2 - Handicap");
         listType.add("3 - Eletric");
@@ -89,7 +88,7 @@ public class Reserva1 extends AppCompatActivity {
                 Random r = new Random();
                 Intent intent = new Intent(getApplicationContext(), Pagamento1.class);
 
-                if (type.getSelectedItem().toString().equals(": 1 - Normal"))
+                if (type.getSelectedItem().toString().equals("1 - Normal"))
                 {
                     try
                     {
@@ -103,15 +102,10 @@ public class Reserva1 extends AppCompatActivity {
                         }
                         int randomNumber = r.nextInt(lugares.size());
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
-                        lugares.remove(randomNumber);
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -132,15 +126,10 @@ public class Reserva1 extends AppCompatActivity {
                         }
                         int randomNumber = r.nextInt(lugares.size());
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
-                        lugares.remove(randomNumber);
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -159,15 +148,10 @@ public class Reserva1 extends AppCompatActivity {
                         }
                         int randomNumber = r.nextInt(lugares.size());
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
-                        lugares.remove(randomNumber);
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -186,15 +170,10 @@ public class Reserva1 extends AppCompatActivity {
                         }
                         int randomNumber = r.nextInt(lugares.size());
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
-                        lugares.remove(randomNumber);
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -213,15 +192,10 @@ public class Reserva1 extends AppCompatActivity {
                         }
                         int randomNumber = r.nextInt(lugares.size());
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
-                        lugares.remove(randomNumber);
 
 
 
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
+                    } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
@@ -232,25 +206,7 @@ public class Reserva1 extends AppCompatActivity {
 
 
 
-                //Inicializar a multi format writer
-              /* MultiFormatWriter writer = new MultiFormatWriter();
-                try {
-                    //Inicializar a bit matrix
-                    BitMatrix matrix = writer.encode(parkingslot, BarcodeFormat.QR_CODE, 400, 400);
-                    //inicializar a barcode encoder
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    //Inicializar bitmap
-                    Bitmap bitmap = encoder.createBitmap(matrix);
-                    //Colocar o bitmap numa imageview
-                    QRcode.setImageBitmap(bitmap);
-                    //Inicializar o input manager
-                    InputMethodManager manager = (InputMethodManager)  getSystemService(
-                            Context.INPUT_METHOD_SERVICE
-                    );
-                    manager.hideSoftInputFromWindow(text.getApplicationWindowToken(), 0);
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }*/
+
             }
         });
     }

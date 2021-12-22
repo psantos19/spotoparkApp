@@ -51,7 +51,7 @@ public class Reserva2 extends AppCompatActivity {
 
         //text = findViewById(R.id.inputText);
         button = findViewById(R.id.btQR);
-        QRcode = findViewById(R.id.imageQR);
+        //QRcode = findViewById(R.id.imageQR);
 
         Spinner type = (Spinner) findViewById(R.id.spinnerType);
 
@@ -83,7 +83,7 @@ public class Reserva2 extends AppCompatActivity {
                 Reserve = new JSONArray();
 
                 Random r = new Random();
-                Intent intent = new Intent(getApplicationContext(), pagamento2.class);
+                Intent intent = new Intent(getApplicationContext(), Pagamento2.class);
 
                 if (type.getSelectedItem().toString().equals(": 1 - Normal"))
                 {

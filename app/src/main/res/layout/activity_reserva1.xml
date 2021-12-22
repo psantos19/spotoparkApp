@@ -23,16 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#000000"
-        android:onClick="onClickReserve"
         android:text="Reservar" />
 
-    <ImageView
-        android:id="@+id/imageQR"
-        android:layout_width="219dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="30dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
 
     <ImageButton
         android:id="@+id/onClickGoParque1"

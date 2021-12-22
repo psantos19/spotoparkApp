@@ -55,7 +55,7 @@ public class Reserva1 extends AppCompatActivity {
 
         //text = findViewById(R.id.inputText);
         button = findViewById(R.id.btQR);
-        QRcode = findViewById(R.id.imageQR);
+        //QRcode = findViewById(R.id.imageQR);
 
         Spinner type = (Spinner) findViewById(R.id.spinnerType);
 

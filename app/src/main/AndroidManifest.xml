@@ -15,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpotoparkApp">
         <activity
+            android:name=".QRCode2"
+            android:exported="true" />
+        <activity
+            android:name=".QRCode1"
+            android:exported="true" />
+        <activity
+            android:name=".Pagamento2"
+            android:exported="true" />
+        <activity
+            android:name=".Pagamento1"
+            android:exported="true" />
+        <activity
             android:name=".Reserva2"
             android:exported="true" />
         <activity
@@ -60,8 +72,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".OpenApp"
             android:exported="true">
@@ -71,7 +82,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

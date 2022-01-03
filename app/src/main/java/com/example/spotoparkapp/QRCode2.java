@@ -28,7 +28,7 @@ public class QRCode2 extends AppCompatActivity {
     TextView nome,email,bdate, spot;
     JSONObject utilizador ;
     String utilizador_name;
-    String utilizador_password;
+    //String utilizador_password;
     String utilizador_bdate;
     String utilizador_email;
     ImageView QRcode;

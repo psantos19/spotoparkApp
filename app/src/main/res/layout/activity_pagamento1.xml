@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/onClickGoParque"
+        android:id="@+id/onClickGoReserva"
         android:layout_width="37dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
@@ -44,5 +44,5 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onClickGoParque" />
+        app:layout_constraintTop_toBottomOf="@+id/onClickGoReserva" />
 </androidx.constraintlayout.widget.ConstraintLayout>

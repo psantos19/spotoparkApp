@@ -57,6 +57,7 @@
         android:layout_marginTop="65dp"
         android:layout_marginEnd="182dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -68,6 +69,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginEnd="182dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32" />
@@ -79,6 +81,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginEnd="182dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
@@ -90,9 +93,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginEnd="182dp"
         android:text="TextView"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,7 @@ public class QRCode2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode1);
+        setContentView(R.layout.activity_qrcode2);
 
         QRcode = findViewById(R.id.imageQR2);
 

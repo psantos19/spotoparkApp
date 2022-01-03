@@ -89,7 +89,7 @@ public class QRCode1 extends AppCompatActivity {
                     //Colocar o bitmap numa imageview
                     QRcode.setImageBitmap(bitmap);
                     //Inicializar o input manager
-                    InputMethodManager manager = (InputMethodManager)  getSystemService(
+                    InputMethodManager manager = (InputMethodManager) getSystemService(
                             Context.INPUT_METHOD_SERVICE
                     );
                 } catch (WriterException e) {

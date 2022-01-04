@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
 import com.example.spotoparkapp.downloaders.JSONObjDownloader;
@@ -63,8 +64,8 @@ public class Reserva1 extends AppCompatActivity {
         listType.add("1 - Normal");
         listType.add("2 - Handicap");
         listType.add("3 - Eletric");
-        listType.add("4 - Motorcycle");
-        listType.add("5 - Covered");
+        /*listType.add("4 - Motorcycle");
+        listType.add("5 - Covered"); */
 
 
         adapterType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listType);
@@ -108,6 +109,7 @@ public class Reserva1 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
 
 
@@ -132,6 +134,7 @@ public class Reserva1 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
                 else if (type.getSelectedItem().toString().equals("3 - Eletric"))
@@ -154,9 +157,13 @@ public class Reserva1 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (type.getSelectedItem().toString().equals("4 - Motorcycle"))
+                else if (type.getSelectedItem().toString().equals("Escolha tipo de parque"))
+                    Toast.makeText(Reserva1.this, "Escolha um tipo de parque!", Toast.LENGTH_SHORT).show();
+
+                /*else if (type.getSelectedItem().toString().equals("4 - Motorcycle"))
                 {
                     try
                     {
@@ -199,13 +206,7 @@ public class Reserva1 extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     Log.e("lugares = ", ""+lugares);
-                }
-                startActivity(intent);
-
-
-
-
-
+                }*/
 
             }
         });

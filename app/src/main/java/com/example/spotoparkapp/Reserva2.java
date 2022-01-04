@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.spotoparkapp.downloaders.JSONArrayDownloader;
 import com.google.zxing.BarcodeFormat;
@@ -56,7 +57,7 @@ public class Reserva2 extends AppCompatActivity {
         Spinner type = (Spinner) findViewById(R.id.spinnerType);
 
         listType = new ArrayList<>();
-
+        listType.add("Escolha tipo de parque");
         listType.add("1 - Normal");
         listType.add("2 - Handicap");
         listType.add("3 - Eletric");
@@ -85,7 +86,7 @@ public class Reserva2 extends AppCompatActivity {
                 Random r = new Random();
                 Intent intent = new Intent(getApplicationContext(), Pagamento2.class);
 
-                if (type.getSelectedItem().toString().equals(": 1 - Normal"))
+                if (type.getSelectedItem().toString().equals("1 - Normal"))
                 {
                     try
                     {
@@ -101,13 +102,11 @@ public class Reserva2 extends AppCompatActivity {
                         MainActivity.Utilizador[1] = lugares.get(randomNumber).toString();
                         lugares.remove(randomNumber);
 
-
-
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
-
 
                 }
                 else if (type.getSelectedItem().toString().equals("2 - Handicap"))
@@ -131,6 +130,7 @@ public class Reserva2 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
                 else if (type.getSelectedItem().toString().equals("3 - Eletric"))
@@ -154,6 +154,7 @@ public class Reserva2 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
                 else if (type.getSelectedItem().toString().equals("4 - Motorcycle"))
@@ -177,6 +178,7 @@ public class Reserva2 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
                 else if (type.getSelectedItem().toString().equals("5 - Covered"))
@@ -200,17 +202,17 @@ public class Reserva2 extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException | JSONException e) {
                         e.printStackTrace();
                     }
+                    startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                     Log.e("Spot =",""+MainActivity.Utilizador[1]);
                 }
-                startActivity(intent);
-
-
+                else if (type.getSelectedItem().toString().equals("Escolha tipo de parque"))
+                    Toast.makeText(Reserva2.this, "Escolha um tipo de parque!", Toast.LENGTH_SHORT).show();
 
 
 
                 //Inicializar a multi format writer
-              /* MultiFormatWriter writer = new MultiFormatWriter();
+                /* MultiFormatWriter writer = new MultiFormatWriter();
                 try {
                     //Inicializar a bit matrix
                     BitMatrix matrix = writer.encode(parkingslot, BarcodeFormat.QR_CODE, 400, 400);

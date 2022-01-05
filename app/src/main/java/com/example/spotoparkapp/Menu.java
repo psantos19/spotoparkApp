@@ -38,4 +38,9 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Acerca.class);
         startActivity(intent);
     }
+
+    public void onClickGoMainActivity(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 }

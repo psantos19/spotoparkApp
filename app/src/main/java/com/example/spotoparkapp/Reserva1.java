@@ -216,5 +216,5 @@ public class Reserva1 extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Parque1.class);
         startActivity(intent);
     }
-                
+
 }

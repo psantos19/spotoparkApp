@@ -116,9 +116,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("",""+Utilizador[0]);
 
         }
-
     }
-
 
         public void onClickRegister(View v){
             Intent intent = new Intent(getApplicationContext(), Register.class);
@@ -130,4 +128,4 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
             startActivity(intent);
         }
-    }
+}

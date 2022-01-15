@@ -29,7 +29,7 @@
         android:layout_marginStart="29dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="29dp"
-        android:text="Ao carregar em reservar aparecerá um código QR nesta página que irá ter de apresentar à entrada do parque para ser feita a verificação do lugar. O nome da reserva pode conter caracteres numéricos."
+        android:text="Informações da Reserva:"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

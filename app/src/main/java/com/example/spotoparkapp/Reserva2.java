@@ -109,7 +109,7 @@ public class Reserva2 extends AppCompatActivity {
                     Log.e("lugares = ", ""+lugares);
 
                 }
-                else if (type.getSelectedItem().toString().equals("2 - Handicap"))
+                else if (type.getSelectedItem().toString().equals("2 - Para deficientes"))
                 {
                     try
                     {
@@ -133,7 +133,7 @@ public class Reserva2 extends AppCompatActivity {
                     startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (type.getSelectedItem().toString().equals("3 - Eletric"))
+                else if (type.getSelectedItem().toString().equals("3 - Elétrico"))
                 {
                     try
                     {
@@ -157,7 +157,7 @@ public class Reserva2 extends AppCompatActivity {
                     startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (type.getSelectedItem().toString().equals("4 - Motorcycle"))
+                else if (type.getSelectedItem().toString().equals("4 - Motas"))
                 {
                     try
                     {
@@ -181,7 +181,7 @@ public class Reserva2 extends AppCompatActivity {
                     startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (type.getSelectedItem().toString().equals("5 - Covered"))
+                else if (type.getSelectedItem().toString().equals("5 - Coberto"))
                 {
                     try
                     {

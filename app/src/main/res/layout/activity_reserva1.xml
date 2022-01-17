@@ -49,7 +49,7 @@
         android:id="@+id/textView28"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Handicap - 2€"
+        android:text="Para deficientes - 2€"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp" />
@@ -58,7 +58,7 @@
         android:id="@+id/textView29"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Eletric - 2,5€"
+        android:text="Elétrico - 2,5€"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp" />

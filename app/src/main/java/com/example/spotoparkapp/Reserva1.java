@@ -114,7 +114,7 @@ public class Reserva1 extends AppCompatActivity {
 
 
                 }
-                else if (type.getSelectedItem().toString().equals("2 - Handicap"))
+                else if (type.getSelectedItem().toString().equals("2 - Para deficientes"))
                 {
                     try
                     {
@@ -137,7 +137,7 @@ public class Reserva1 extends AppCompatActivity {
                     startActivity(intent);
                     Log.e("lugares = ", ""+lugares);
                 }
-                else if (type.getSelectedItem().toString().equals("3 - Eletric"))
+                else if (type.getSelectedItem().toString().equals("3 - Elétrico"))
                 {
                     try
                     {

@@ -59,10 +59,10 @@ public class Reserva2 extends AppCompatActivity {
         listType = new ArrayList<>();
         listType.add("Escolha tipo de parque");
         listType.add("1 - Normal");
-        listType.add("2 - Handicap");
-        listType.add("3 - Eletric");
-        listType.add("4 - Motorcycle");
-        listType.add("5 - Covered");
+        listType.add("2 - Para deficientes");
+        listType.add("3 - Elétrico");
+        listType.add("4 - Motas");
+        listType.add("5 - Coberto");
 
 
         adapterType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listType);

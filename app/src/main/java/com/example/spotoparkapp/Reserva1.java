@@ -62,8 +62,8 @@ public class Reserva1 extends AppCompatActivity {
         listType = new ArrayList<>();
         listType.add("Escolha tipo de parque");
         listType.add("1 - Normal");
-        listType.add("2 - Handicap");
-        listType.add("3 - Eletric");
+        listType.add("2 - Para deficientes");
+        listType.add("3 - Elétrico");
         /*listType.add("4 - Motorcycle");
         listType.add("5 - Covered"); */
 

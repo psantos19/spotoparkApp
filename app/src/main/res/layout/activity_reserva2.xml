@@ -26,11 +26,65 @@
         android:backgroundTint="#000000"
         android:text="Reservar" />
 
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Preços: "
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Normal - 1,5€"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Handicap - 2€"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eletric - 2,5€"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Motorcycle - 1,5€"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Covered - 3€"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
     <ImageButton
         android:id="@+id/onClickGoParque2"
         android:layout_width="37dp"
         android:layout_height="40dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="150dp"
         android:backgroundTint="#076A6A6A"
         android:onClick="onCLickGoParque2"
         app:layout_constraintEnd_toEndOf="parent"

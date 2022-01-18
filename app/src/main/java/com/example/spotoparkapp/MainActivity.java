@@ -52,10 +52,6 @@ public class MainActivity extends AppCompatActivity {
         email.setText("pedrosantos@gmail.com");
         password.setText("pedro2725");
 
-        email.setText("utilizador@gmail.com");
-        password.setText("utilizador");
-
-
         JSONArrayDownloader task = new JSONArrayDownloader();
 
         LoginCredentials = new JSONArray();

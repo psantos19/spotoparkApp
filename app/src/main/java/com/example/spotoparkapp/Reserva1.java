@@ -60,7 +60,7 @@ public class Reserva1 extends AppCompatActivity {
         Spinner type = (Spinner) findViewById(R.id.spinnerType);
 
         listType = new ArrayList<>();
-        listType.add("Escolha tipo de parque");
+        listType.add("Escolha o tipo de lugar que deseja");
         listType.add("1 - Normal");
         listType.add("2 - Para deficientes");
         listType.add("3 - Elétrico");
